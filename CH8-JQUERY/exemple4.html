@@ -1,0 +1,35 @@
+<html>
+<head>
+    <script src="jquery-1.11.2.min.js">
+
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#btext").click(function(){
+                $("div").text("Bonjour");
+                alert($("div").text());               
+            });
+            $("#bhtml").click(function(){
+                $("div").html("<h1>Titre 1</h1>");
+                alert($("div").html());               
+            });
+            $("#bval").click(function(){
+                $("#text1").val("Bonsoir");
+                alert($("#text1").val());               
+            });
+        });
+    </script>
+</head>
+<body>
+    <div style="background-color:aquamarine; width:300px">
+        <p>Paragraphe 1</p>
+        <p>Paragraphe 2</p>
+        <p>Paragraphe 3</p>
+        <p>Paragraphe 4</p>
+    </div>
+    <input type="text" value="Bonjour" id="text1"/>
+    <button id="btext">Afficher text</button>
+    <button id="bhtml">Afficher html</button>
+    <button id="bval">Afficher value</button>
+</body>
+</html>
