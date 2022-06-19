@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <fieldset>
+      Saisir un element: <input type="text" class="input1" id="element" name="" value=""> &nbsp; <input type="button" class="input1" id="ajouter" onclick="ajouter()" name="" value="Ajouter"> <br>
+      Liste element <br>
+      <ul id="liste">
+
+      </ul><br>
+      Liste des couleurs  <input type="radio" class="input1" id="r1" name="op" value=""> Rouge   <input type="radio" class="input1" id="r2" name="op" value=""> Vert    <input type="radio" id="r3" name="op" value=""> Jaune  &nbsp;   <input type="button" id="app" onclick="colorer()" name="" value="Appliquer couleur">
+      <div class="" id="div1" style="border:solid 1px;height:50px">
+
+      </div><br>
+        Largeur: <input id="largeur" type="text" name="" value=""> px  &nbsp;&nbsp; Hauteur: <input id="hauteur" type="text" name="" value=""> px  <input type="button" onclick="redimensioner()" id="app1" name="" value="Appliquer dimention"><br><br>
+        X: <span style="padding-left:39px"><input id="x" type="text" name="" value=""></span> px &nbsp;&nbsp;  Y: <span style="padding-left:41px"><input id="y" type="text" name="" value=""></span> px  <input type="button" id="app2" onclick="translater()" name="" value="Translater">
+        <br>
+        Nom de la balise : <input type="text" id="balise" value=""> <input type="button" onclick="calculer()" value="calculer"><br><br>
+        Nom de la classe : <input type="text" id="nomclass" name="" value=""> <input type="button" onclick="rechercher()" name="" value="rechercher">
+
+    </fieldset>
+
+  </body>
+  <script type="text/javascript">
+    var div1 = document.getElementById("div1")
+    function ajouter() {
+      var element = document.getElementById("element")
+      var liste = document.getElementById("liste")
+      if (element.value.trim() != "") {
+        let collection = liste.getElementsByTagName("li")
+        let etat = false
+        for (var i = 0; i < collection.length; i++) {
+          if (collection[i].innerHTML == element.value) {
+            etat = true
+            break;
+          }
+        }
+        if (etat == false) {
+          liste.innerHTML += "<li>"+element.value+"</li>"
+        }
+        else {
+          alert("veuillez eviter la repetition")
+        }
+      }
+      else {
+        alert("veuiller saisir votre element!")
+
+      }
+
+
+    }
+    function colorer() {
+      var r1 = document.getElementById("r1")
+      var r2 = document.getElementById("r2")
+      var r3 = document.getElementById("r3")
+      if (r1.checked) {
+        div1.style.backgroundColor = "red"
+      }
+      else if (r2.checked) {
+        div1.style.backgroundColor = "green"
+      }
+      else if (r3.checked) {
+        div1.style.backgroundColor = "yellow"
+      }
+    }
+    function redimensioner() {
+      var largeur = document.getElementById("largeur")
+      var hauteur = document.getElementById("hauteur")
+      div1.style.height = largeur.value+"px"
+      div1.style.width = hauteur.value+"px"
+    }
+    function translater() {
+      var x = document.getElementById("x")
+      var y = document.getElementById("y")
+      div1.style.position = "relative"
+      div1.style.marginLeft = x.value+"px"
+      div1.style.marginTop = y.value+"px"
+    }
+    function calculer() {
+      var balise = document.getElementById("balise")
+      let tab = []
+      tab = document.getElementsByTagName(balise.value)
+      alert("Le nombre de balise de type "+balise.value+" est :"+tab.length)
+    }
+    function rechercher() {
+      var class1 = document.getElementById("nomclass")
+      let tab1 = []
+      tab1 = document.getElementsByClassName(class1.value)
+      alert("Le nombre de balise ayant la classe "+class1.value+" est :"+tab1.length)
+    }
+  </script>
+</html>

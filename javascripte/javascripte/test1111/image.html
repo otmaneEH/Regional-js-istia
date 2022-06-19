@@ -1,0 +1,67 @@
+<doctype html>
+<html>
+   <head>
+    <meta charset="utf-8"></meta>
+<title> Page pour changer la valeur d'un attribut</title>
+   <style>
+     body{
+	   background-color:black;
+	 }
+   </style>
+   </head>
+   <body  onload="demarer()">
+
+       <img src="img11.jpg"  id="i1" />
+       <img src="img10.jpg"  id="i2" />
+       <img src="img1.png"  id="i3" />
+       <img src="img2.png" id="i4" />
+   </body>
+   <Script >
+   var x=1;
+   var i1=document.getElementById("i1").src;
+   var i2=document.getElementById("i2").src;
+   var i3=document.getElementById("i3").src;
+   var i4=document.getElementById("i4").src;
+    var t;
+     function afficher(){
+	    var image="img11.jpg";
+         if(x==1)
+		 {
+		   x=2;
+		   image="img10.jpg";
+		 }
+		 else if(x==2)
+		 {
+		   
+		   x=3;
+		   image="img1.png";
+		   
+		 }
+		 else if(x==3)
+		 {
+		 
+		   x=4;
+		   image="img2.png";
+		 }
+		  else if(x==4)
+		 {
+
+		   x=1;
+		   image="img11.jpg";
+		 }
+		 x++;
+		
+   
+   }
+   function demarer() {
+     t=setInterval('afficher()',1000);
+	 
+   
+   }
+    function arreter()
+        {
+            clearInterval(t)
+        } 
+   
+   </script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript">
+		function getHeure(x){
+			return parseInt(x/3600);
+		}
+
+		function getMinutes(x){
+			return parseInt((x%3600)/60);
+		}
+		function getSecondes(x){
+			return parseInt((x%3600)%60);
+		}
+		var s=parseFloat(prompt("saisir le nombres des secondes "));
+		document.write("<h1>"+getHeure(s)+"H"+ getMinutes(s)+"m"+getSecondes(s)+"s"+"</h1>");
+
+	</script>
+	<title>
+	ex10
+	</title>
+</head>
+<body>
+
+</body>
+</html>

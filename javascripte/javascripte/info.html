@@ -1,0 +1,137 @@
+<html>
+    <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>test1</title>
+		<style>
+	  #infosDiv
+	  {
+	    border : 1px solid black;
+		background-color:pink;
+		height:auto;
+	  }
+	</style>
+		 
+	    <script type="text/javascript">
+		
+	        function checkVide()
+			{
+			
+			  return false;
+			
+			}
+			function infos()
+			{
+			  var matricule= document.getElementById("matricule").value;
+			  var nom= document.getElementById("nom").value;
+			  var prenom= document.getElementById("prenom").value;
+			  var r1=document.getElementById("r1");
+			  var sexe="";
+               if(r1.checked==true)
+			     sexe = "Féminin";
+			   else
+			      sexe="Masculin";
+				  
+			  var nationalite = document.getElementById("nationalite").value;
+              var email = document.getElementById("email").value;
+              var tel = document.getElementById("tel").value;	
+              var chk1=	 document.getElementById("ar");	
+              var chk2=	 document.getElementById("fr");				  
+              var chk3=	 document.getElementById("ang");
+			  var langues="";
+			  if(chk1.checked==true)
+			     langues += chk1.value + "  ";
+			  if(chk2.checked==true)
+			     langues += chk2.value + "  ";
+			  if(chk3.checked==true)
+			     langues += chk3.value + "  ";
+			   alert(matricule +  " "+nom+ "  "+ prenom + " "+ sexe+ " "+email+ " "+nationalite + " "+ tel+" "+langues);
+			   var infos="";
+			   infos += "Matricule :"+ matricule+ "<br/>" ;
+			   infos += "Nom & Prénom :"+ nom+ " " + prenom +"<br/>" ;
+			   infos += "sexe :"+ sexe +"<br/>" ;
+			   infos += "Vous etes de nationnalité :"+  nationalite +"<br/>" ;
+			   infos += "Email :"+ email +"<br/>" ;
+			   infos += "Télephone :"+ tel +"<br/>" ;
+			   infos += "Langues maitrisées :"+ langues +"<br/>" ;
+			   //alert(infos);
+			   var infosDiv=document.getElementById("infosDiv");
+			   if(checkVide()==true)
+			   {
+			     alert("tous les champs sont obligatoires");
+				 
+			   }
+			   else
+			   {
+			      infosDiv.innerHTML=infos;
+			   }
+			  
+			  
+			}
+			
+	
+		  
+			
+		</script>
+    </head>
+    <body>
+	      <form>
+		       <h1>les information</h1>
+				<fieldset>
+					<legend>employer</legend>
+					<table>
+						<tr>
+							<td>matricule:</td>
+							<td><input type="text" id="matricule"></td>
+						</tr>
+						<tr>
+							<td>nom:</td>
+							<td><input type="text" id="nom"></td>
+						</tr>
+						<tr>
+							<td>prenom:</td>
+							<td><input type="text" id="prenom"></td>
+						</tr>
+						<tr>
+							<td>sexe:</td>
+							<td>
+								f<input type="radio" id="r1" checked="true" name="sexe">
+								m<input type="radio" id="r2" name="sexe">
+							</td>
+						</tr>
+						<tr>
+							<td>nationalité:</td>
+							<td>
+							  <select  id="pays">
+							  		<option value="rien" selected="true">choisir un pays</option>
+		                            <option value="maroc">maroc</option>
+									<option value="algeria">algeria</option>
+									<option value="roma">roma</option>
+							   </select>
+							</td>
+						</tr>
+						<tr>
+							<td>Email:</td>
+							<td><input type="email" id="email"></td>
+						</tr>
+						<tr>
+							<td>Tele:</td>
+							<td><input type="tel" id="tel"></td>
+						</tr>
+						<tr>
+							<td>langues:</td>
+							<td>
+								ar<input type="checkbox" id="ar" value="arabe"/>
+								fr<input type="checkbox" id="fr" value="francais"/>
+								ang<input type="checkbox" id="ang" value="anglais">
+							</td>
+						</tr>
+						<tr>
+							<td> </td>
+							<td><input type="button"  value="afficher infos" onclick="infos()"></td>
+						</tr>
+					</table>
+				</fieldset>
+			</form>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+   <head>
+   <style>
+  
+   </style>
+   </head>
+   <body onload="settime()" id="body1">
+    <form >
+        
+				   
+				        <input type="radio" id="r1" name="couleurs"/><label>Rouge</label>
+				        <input type="radio" id="r2" name="couleurs"/><label>Vert</label>
+				        <input type="radio" id="r3" name="couleurs"/><label>Jaune</label>
+				  
+	
+    </form>
+	<script>
+	var body1=document.getElementById("body1");
+	var start=1;
+		 function choisircolor(){
+		         var r1=document.getElementById("r1");
+		         if(start==1){
+				     r1.checked=true;
+				     body1.style.backgroundColor="red";
+					 start=2}
+				 else if(start==2){r2.checked=true;
+				     body1.style.backgroundColor="green";
+					 start=3;}
+				 else if(start==3){
+				     r3.checked=true;
+				     body1.style.backgroundColor="yellow";
+					 start=1;}
+		 }
+		 var t;
+		function settime(){
+		          t=setInterval(choisircolor,1000);
+		}
+	   </script>
+   </body>
+  </html>

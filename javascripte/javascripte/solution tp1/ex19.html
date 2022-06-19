@@ -1,0 +1,21 @@
+<html>
+   <head>
+        <script>
+            function nbrExist(tab, val) 
+            {
+
+                for (var i = 0; i < tab.length; i++)
+            {
+                    if (tab[i] === val){
+                return true;
+            }
+            }
+                return false;
+            }
+            console.log(nbrExist([6, 7, 8], 7));
+            console.log(nbrExist([1, 2, 3], 5));
+            console.log(nbrExist([], 0));
+        </script>
+        
+   </body>
+</html>

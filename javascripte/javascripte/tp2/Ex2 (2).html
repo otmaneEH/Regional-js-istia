@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>exercice4</title>
+	<style>
+		#div1
+		{
+			background-color: yellow;
+		}
+	</style>
+	<script type="text/javascript">
+		function CheckFormulaire()
+		{
+			var nom=document.getElementById("nom").value;
+			var prenom=document.getElementById("prenom").value;
+			var jour=document.getElementById("jour").value;
+			var mois=document.getElementById("mois").value;
+			var annee=document.getElementById("annee").value;
+			var password=document.getElementById("password").value;
+			var confirmation=document.getElementById("confirmation").value;
+			var btnValider=document.getElementById("btnValider");
+			if (nom.trim()==""||prenom.trim()==""||jour.trim()==""||mois.trim()==""||annee.trim()==""||password.trim()==""||confirmation.trim()=="")
+				{
+					alert ("tous les champs sont obligatoires");
+				}
+			else 
+				{
+					if((jour<1 || jour >31) ||(mois<1||mois>12)||(annee<1900) )
+						alert("la date de naissance n'est pas correcte");
+					else 
+					{
+						if (confirmation!= password)
+						{
+							alert("le mot de passe et sa confirmation ne sont pas identique")
+						}
+						else
+						{
+							var accepte=document.getElementById("accept");
+							if(accepte.checked)
+								{
+									
+									btnValider.disabled=false;
+									var div=document.getElementById("info");
+									div.innerHTML=nom+" "+prenom+" "+jour+"/"+mois+"/"+annee 
+								}
+							else
+								{
+									btnValider.disabled=true;
+								}
+						}
+					}
+				}
+		}
+	</script>
+    
+</head>
+<body>
+		<form method="get">
+			<fieldset>
+				<div id="div1">
+				<h1>Pour s'inscrire , remplir le formulaire suivant :</h1>
+					<table>
+					<tr>
+						<td><label for="Nom"> Nom: </label></td>
+						<td><input type="text" id="nom"/></td>
+					</tr>
+					
+					<tr>
+						<td><label for="prenom"> Prenom: </label></td>
+						<td><input type="text" id="prenom"/></td>
+					</tr>
+					
+					<tr>
+						<td><label for="Nom"> Date de naissance : </label></td>
+						<td>
+							<input type="text" id="jour" placeholder="JJ" style="width:45px ; height20px"/>
+							<input type="text" id="mois" placeholder="mm" style="width:45px ; height20px"/>
+							<input type="text" id="annee" placeholder="AAAA" style="width:45px ; height20px"/>
+							</td>
+					</tr>
+					<tr>
+						<td><label for="password"> Mot de passe: </label></td>
+						<td><input type="password" id="password"/></td>
+					</tr>
+					<tr>
+						<td><label for="confirmation"> Confirmation: </label></td>
+						<td><input type="password" id="confirmation"/></td>
+					</tr>
+					
+					
+					</table>
+				</div>
+				<table>
+					<tr>
+						<td></td>
+						<td><input type="checkbox" id="accept"/> J'accepte les conditions  </td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><td>
+						<td>
+							<input type="button" value="Valider"   onclick="CheckFormulaire()" id="btnValider"/>
+							<input type="reset" value="Annuler"/>
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+		<div id="info">
+		
+		</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+   <head>
+   <style>
+  
+   </style>
+   </head>
+   <body onload="setime()">
+  <table><tr><td><img src='img1.png'id="img1" width='300px' height='300px'  />
+  </td><td><img src='img2.jpg'id="img2" width='300px' height='300px'  /></td>
+  <td><img src='img3.jpeg'id="img3" width='300px' height='300px'  /></td>
+  <td><img src='img4.jpg'id="img4" width='300px' height='300px'  /></td></tr></table>
+   <script>
+   var img1=document.getElementById("img1");
+   var img2=document.getElementById("img2");
+   var img3=document.getElementById("img3");
+   var img4=document.getElementById("img4");
+   var x=1;
+   function decalage(){
+          if (x==1){
+		      img1.src="img4.jpg";
+		      img2.src="img1.png";
+			  img3.src="img2.jpg";
+			  img4.src="img3.jpeg";
+			  x=2;
+		  }
+		  else if (x==2){
+		      img1.src="img3.jpeg";
+		      img2.src="img4.jpg";
+			  img3.src="img1.png";
+			  img4.src="img2.jpg";
+			  x=3;
+		  }
+		  else if (x==3){
+		      img1.src="img2.jpg";
+		      img2.src="img3.jpeg";
+			  img3.src="img4.jpg";
+			  img4.src="img1.png";
+			  x=4;
+		  }
+		  else if (x==4){
+		      img1.src="img1.png";
+		      img2.src="img2.jpg";
+			  img3.src="img3.jpeg";
+			  img4.src="img4.jpg";
+			  x=1;
+		  }
+		  
+   }
+   var t;
+   function setime(){
+           t=setInterval(decalage,1000);
+   }
+   </script>
+   </body>
+   </html>
+   
+   

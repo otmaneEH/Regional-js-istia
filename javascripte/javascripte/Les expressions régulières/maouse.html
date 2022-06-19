@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+<body>
+      <table>
+                <tr>
+                    <td>
+                        <lab>cliquer:</lab>
+                    </td>
+					<td>
+                    <input type="button" value="Ok" id="btn" > <br>
+					</td>
+    
+<script>
+let element = document.getElementById("btn");
+//element.addEventListener("click", clickFct); //Evénement : clic de la souris
+//element.addEventListener("dblclick", clickFct); //Evénement : clic de la souris
+element.addEventListener("mouseup", clickFct); //Evénement : clic de la souris
+element.addEventListener("mousedown", clickFct); //Evénement : clic de la souris
+//element.addEventListener("mouseover", mouseoverFxn); //Evénement : passage de la souris sur un élément
+//element.addEventListener("mouseout", mouseoutFxn); //Evénement : la souris quitte l’élément
+function clickFct() {
+alert("Vous avez cliqué :");
+}
+function mouseoverFxn() {
+element.style.background = "red";
+element.style.padding = "8px";
+}
+function mouseoutFxn() {
+element.style.background = "white";
+element.style.padding = "2px";
+}
+
+        
+    </script>
+</body>
+</html>

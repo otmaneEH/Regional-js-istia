@@ -1,0 +1,315 @@
+<html>
+	<head>
+		<title>Application</title>
+		<style>
+		#infos
+	  {
+	    border : 1px solid black;
+		background-color:red;
+		height:auto;
+	  }
+	</style>
+		
+	</head>
+	<body>
+		  
+			<form >
+				<fieldset>
+				
+				<table>
+				   <tr>
+							<td>Matricule:</td>
+							<td><input type="text"  id="matricule" /></td>
+							<td><label id="lblmatricule1"></label></td>
+							<td><label id="lblmatricule"></label></td>
+					</tr>
+					<tr>
+							<td>Nom:</td>
+							<td><input type="text"  id="nom"  /></td>
+							<td><label id="lblnom1"></label></td>
+							<td><label id="lblnom"></label></td>
+					</tr>
+					<tr>
+							<td>Prénom:</td>
+							<td><input type="text"  id="prénom"  /></td>
+							<td><label id="lblprenom1"></label></td>
+							<td><label id="lblprenom"></label></td>
+					</tr>
+									   <tr>
+							<td>Salaire:</td>
+							<td><input type="text"  id="salaire" /></td>
+							<td><label id="lblsalaire1"></label></td>
+							<td><label id="lblsalaire"></label></td>
+					</tr>
+					
+					
+							
+							<tr>
+							<td>Email : </td>
+							<td><input type="email" id="email"/></td>
+							<td><label id="lblemail1"></label></td>
+							<td><label id="lblemail"></label></td>
+							</tr>
+											   <tr>
+							<td>Url:</td>
+							<td><input type="text"  id="url"   /></td>
+							<td><label id="lblurl1"></label></td>
+							<td><label id="lblurl"></label></td>
+					</tr>
+							<td>Tele : </td>
+							<td><input type="tel" id="tel" /></td>
+							<td><label id="lbltel1"></label></td>
+							<td><label id="lbltel"></label></td>
+							</tr>
+											   <tr>
+							<td>Code postal:</td>
+							<td><input type="text"  id="postal"   /></td>
+							<td><label id="lblpostal1"></label></td>
+							<td><label id="lblpostal"></label></td>
+					</tr>
+							<tr>
+							<td></td>
+							<td><input type="button" value="valider" onclick="valider()"/></td>
+					</tr>
+					</table>
+				</fieldset>
+			</form>
+			<h1>Infos client :</h1>
+			<div id="infos" ></div>
+			<script>
+			var Matricule = document.getElementById('matricule');
+			function checkmatricule(matricule) {
+                let pattern = /^[0-9]{3}$/;
+                let result = pattern.test(Matricule.value);var etat1=false;
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			var nom = document.getElementById('nom');
+			function checknom(nom) {
+			
+                let pattern = /^[A-Z]{4,9}$/;
+                let result = pattern.test(nom.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			var prenom = document.getElementById('prénom');
+			function checkprenom(prenom) {
+                let pattern = /^[A-Z][a-z]{3,9}$/;
+                let result = pattern.test(prenom.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			var salaire = document.getElementById('salaire');
+			function checksalaire(salaire) {
+                let pattern = /^[1-9]{4,9}$/;
+                let result = pattern.test(salaire.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			var email = document.getElementById('email');
+			function checkemail(email) {
+                let pattern = /^[a-zA-Z0-9]+@(gmail|yahoo).(com|fr|ma)$/;
+                let result = pattern.test(email.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			var url = document.getElementById('url');
+			function checkurl(url) {
+                let pattern = /^(www.)[a-zA-Z0-9]+.(com|fr|ma)$/;
+                let result = pattern.test(url.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			var tel = document.getElementById('tel');
+			function checktel(tel) {
+                let pattern = /^(\+212|0)(6|7)(\s)?[0-9]{8}$/;
+                let result = pattern.test(tel.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			var postal = document.getElementById('postal');
+			function checkpostal(postal) {
+                let pattern = /^[0-9]{5}$/;
+                let result = pattern.test(postal.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+		function valider(){ 
+		       var etat1=checkmatricule(Matricule);
+		       var etat8=checkpostal(postal);
+		       var etat6=checkurl(url);
+		       var etat7=checktel(tel);
+		       var etat4=checksalaire(salaire);
+		       var etat5=checkemail(email);
+		       var etat3=checkprenom(prenom);
+			   var infosdiv=document.getElementById("infos");
+			   var lblMatricule = document.getElementById("lblmatricule");
+			   var lblurl = document.getElementById("lblurl");
+			   var lbltel = document.getElementById("lbltel");
+			   var lblsalaire = document.getElementById("lblsalaire");
+			   var lblemail = document.getElementById("lblemail");
+			   var lblprenom = document.getElementById("lblprenom");
+			   var lblmatricule1=document.getElementById("lblmatricule1");
+			  var lblnom1=document.getElementById("lblnom1");
+			  var lblprenom1=document.getElementById("lblprenom1");
+			  var lblsalaire1=document.getElementById("lblsalaire1");
+			  var lblpostal1=document.getElementById("lblpostal1");
+			  var lblemail1=document.getElementById("lblemail1");
+			  var lbltel1=document.getElementById("lbltel1");
+			  var test1; var test2; var test3; var test4; var test5; var test6; var test7;
+		       var infosd="";
+			   if(Matricule.value.trim()==""){
+			        lblmatricule1.innerHTML = "(*)"
+                    matricule.style.borderColor = "red";
+					test1=true;
+					lblmatricule.innerHTML="";
+             } else {
+                  lblmatricule1.innerHTML = "";
+                  matricule.style.borderColor = "";
+				  test1=false;
+				  if(etat1==true){
+			      infosd+= "Matricule : "+Matricule.value+"<br/>";
+				  
+				  lblmatricule.innerHTML="";}
+			   else if(etat1==false){
+			     lblmatricule.innerHTML="matricule doit cantenir au moin 3 chiffres!";}}
+				 
+			  var etat2=checknom(nom);
+			   var lblnom = document.getElementById("lblnom");
+			   if(nom.value.trim()==""){
+			        lblnom1.innerHTML = "(*)"
+                    nom.style.borderColor = "red";
+					test2=true;
+					lblnom.innerHTML="";
+             } else {
+                  lblnom1.innerHTML = "";
+                  nom.style.borderColor = "";
+				  
+				  test2=false;
+				  if(etat2==true){
+			     infosd+="Nom : "+nom.value+"<br/>";
+				 lblnom.innerHTML="";}
+			   else if (etat2==false){
+			     lblnom.innerHTML="il faut écrire votre nom en majiscule!";
+				 }}
+			  if(prenom.value.trim()==""){
+			        lblprenom1.innerHTML = "(*)"
+                    prenom.style.borderColor = "red";
+					lblprenom.innerHTML="";
+					test3=true;
+             } else {
+                  lblprenom1.innerHTML = "";
+                  prenom.style.borderColor = "";
+				  test3=false;
+				  if(etat3==true){
+			     infosd+="Prénom : "+prenom.value+"<br/>";
+				 lblprenom.innerHTML="";}
+			   else if (etat3==false){
+			     lblprenom.innerHTML="Prenom doit etre alphabetique et le premier en Maj!";
+				 }}
+			 if(salaire.value.trim()==""){
+			        lblsalaire1.innerHTML = "(*)"
+                    salaire.style.borderColor = "red";
+					lblsalaire.innerHTML="";
+					test4=true;
+             } else {
+                  lblsalaire1.innerHTML = "";
+                  salaire.style.borderColor = "";
+				  test4=false; 
+				  if(etat4==true){
+			     infosd+="Salaire : "+salaire.value+"<br/>";
+				 lblsalaire.innerHTML="";}
+			   else if (etat4==false){
+			     lblsalaire.innerHTML="il faut écrire nombre digital!";
+				 }}
+			 if(email.value.trim()==""){
+			        lblemail1.innerHTML = "(*)"
+                    email.style.borderColor = "red";
+					lblemail.innerHTML="";
+					test5=true;
+             } else {
+                  lblemail1.innerHTML = "";
+                  email.style.borderColor = "";
+				  test5=false;
+				  if(etat5==true){
+			     infosd+="Email : "+email.value+"<br/>";
+				 lblemail.innerHTML="";}
+			   else if (etat5==false){
+			     lblemail.innerHTML="la form E-mail **@**.com";
+				 }}
+			if(url.value.trim()==""){
+			        lblurl1.innerHTML = "(*)"
+                    url.style.borderColor = "red";
+					lblurl.innerHTML="";
+					test6=true;
+             } else {
+                  lblurl1.innerHTML = "";
+                  url.style.borderColor = "";
+				  test6=false;
+				  if(etat6==true){
+			     infosd+="Url : "+url.value+"<br/>";
+				 lblurl.innerHTML="";}
+			   else if (etat6==false){
+			     lblurl.innerHTML="url doit respecte la form www.*.com!";
+				 }}
+				 if(tel.value.trim()==""){
+			        lbltel1.innerHTML = "(*)"
+                    tel.style.borderColor = "red";
+					lbltel.innerHTML="";
+					test7=true;
+             } else {
+                  lbltel1.innerHTML = "";
+                  tel.style.borderColor = "";
+				  test7=false;
+				  if(etat7==true){
+			     infosd+="Tel : "+tel.value+"<br/>";
+				 lbltel.innerHTML="";}
+			   else if (etat7==false){
+			     lbltel.innerHTML="TEL diot respecte la form (+212 ou 06 ou 07)XXXXXXXX!";
+				 }}
+				 if(postal.value.trim()==""){
+			        lblpostal1.innerHTML = "(*)"
+                    postal.style.borderColor = "red";
+					test8=true;
+					lblpostal.innerHTML="";
+             } else {
+                  lblpostal1.innerHTML = "";
+                  postal.style.borderColor = "";
+				  test8=false;
+				  if(etat8==true){
+			     infosd+="Code postal : "+postal.value+"<br/>";
+				 lblpostal.innerHTML="";}
+			   else if (etat8==false){
+			     lblpostal.innerHTML=" Code postale diot etre Numerique et contenir 5 chiffre!";
+				 }}
+				 if(etat1==true&&etat2==true&&etat3==true&&etat4==true&&etat5==true&&etat6==true&&etat7==true&&etat8==true)
+				 infosdiv.innerHTML=infosd;
+				 
+			  if (test1 == false && test2 == false && test3 == false && test4 == false && test5 == false && test6 == false && test7 == false && test8 == false)
+            {return false;
+			}
+        else{
+            return true;}
+		      }
+			  
+			
+		</script>
+	</body>
+</html>
+         

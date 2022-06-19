@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		#infosDiv
+	  {  font-size:24px;
+	  border:1px;
+
+	  }
+	</style>
+        <title>exercice4</title>
+		<script type="text/javascript">
+		function changement(){
+		   var type=document.getElementById("type").value;
+		   var div=document.getElementById("pays");
+		   div=type;
+		}
+		function afficher(){ 	
+		            var r3=document.getElementById("r3");
+		            var r4=document.getElementById("r4");
+
+		if(r4.checked==true){
+		   var div=document.getElementById("pays").style.display=block;
+				 }
+		else{ 
+				   var div=document.getElementById("pays").style.display=none;
+
+		}
+		function afficher(){
+		    var lecture=document.getElementById("lecture");
+            var cinéma=document.getElementById("cinéma");
+            var sports=document.getElementById("sports");
+            var théatre=document.getElementById("théatre");
+            var voyage=document.getElementById("voyages");
+            var sciences=document.getElementById("sciences");
+            var c=0;
+			if (lecture.checked){
+		         c++;
+		                        }
+		   if (cinéma.checked){
+		         c++;
+		   }
+		   if (sports.checked){
+		         c++;
+		                      }
+		   if (théatre.checked){
+		         c++;
+		                       }
+		   if (voyage.checked){
+		         c++;
+		                      }
+		   if (sciences.checked){
+		         c++;
+		                        }
+			var nom= document.getElementById("nom").value;
+			var prénom= document.getElementById("prénom").value;
+			var age=document.getElementById("age").value;
+			var sexe="";
+               if(r1.checked==true)
+			     sexe = "Féminin";
+			   else
+			      sexe="Masculin";
+			var Nationalité = "";
+				if(r3.checked==true)
+			     Nationalité = "marocain";
+			    else{
+			      Nationalité="étrangère";}
+			var intrats="";
+			  if(lecture.checked)
+			     intrats += lecture.value + "  ";
+			  if(cinéma.checked)
+			     intrats +=cinéma.value + "  ";
+			  if(sports.checked)
+			     intrats += sports.value + "  ";
+			  if(théatre.checked)
+			     intrats += théatre.value + "  ";
+			  if(voyage.checked)
+			     intrats += voyage.value + "  ";
+			  if(sciences.checked)
+			     intrats += sciences.value + "  ";
+		    var infosDiv=document.getElementById("infosDiv");
+			var infos="";
+			   infos +=  nom+ " " + prénom +" , " ;
+			   infos +=  "àge "+age+ " " + " ans ." ;
+			   if (sexe=="Féminin"){
+			     infos+= "Elle est ";
+			                      }
+			   else{
+			     infos+= "Il est ";
+			      }
+			   infos +=Nationalité +". " ;
+			   if(c==1)
+			     infos += "Son intérats est : "+intrats+"." ;
+			   else
+			     infos += "Ses intérats sont : "+intrats+"." ;
+			     infosDiv.innerHTML=infos;
+			   //alert(infos);
+		   }
+		</script>
+		</head>
+		<body>
+				<form method="post" action="traitement.php">
+					<fieldset>
+                 <table>
+						<tr><td><h1>Inscription</h1></td></tr>
+						<tr><td >Nom: </td>
+						<td><input type="text" id="nom"/></td>
+						<td>Prénom: </td>
+						<td><input type="text" id="prénom"/></td></tr>
+						<tr><td>Age : </td><td><input type="text" id="age"/></td></tr>
+						<tr>
+							<td>Sexe:</td>
+							<td>
+							f<input type="radio" id="r1"  name="sexe"/>
+							m<input type="radio" id="r2" name="sexe"/></td>
+					</tr>
+					<tr>
+							<td>Nationalité:</td>
+							<td>
+							marocain<input type="radio" id="r3"   name="Nationalité"/></td><td>
+							étrangère<input type="radio" id="r4"  name="Nationalité"/></td>
+					</tr>
+					<div id="pays" display="none">
+					<tr>
+						<td>Pays : </td>
+					<td><select id="type" > <option>choisir un pays </option>
+							<option>espagne</option>
+							<option >france</option>
+							<option >russia</option>
+							<option >italie</option>
+							</select>
+							</td>
+							</tr></div>
+					
+					<tr><td>Intérats : </td></tr>
+					<tr><td></td>
+					<td>Lecture<input type="checkbox" id="lecture" value="lecture" name="Intérats"/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cinéma<input type="checkbox" value="cinéma" id="cinéma"  name="Intérats"/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sports<input type="checkbox" value="sports" id="sports"  name="Intérats"/></td></tr>
+					<tr></tr><tr></tr><tr></tr><tr><td></td>
+					<td>Théatre<input value="théatre" type="checkbox" id="théatre"  name="Intérats"/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Voyages<input value="voyages" type="checkbox" id="voyages"  name="Intérats"/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sciences<input value="sciences" type="checkbox" id="sciences"  name="Intérats"/></td></tr>
+					<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr>
+							<td></td>
+							<td><input type="button" value="afficher" onclick="afficher()"/></td>
+					</tr>
+						</table>
+			<div id="infosDiv" ></div>
+			</fieldset>
+		</form>
+		
+    </body>
+</html>

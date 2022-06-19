@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+   <form>
+   <table>
+            <tr><td>saisir votre url :</td>
+			       <td><input type="text" id="url"/></td>
+				   <td><input type="button" value="ok" onclick="redire()"/></td></tr>
+				   <tr><td><label id="lblmss"></label></td></tr>
+  </table>
+  </form>
+  </body>
+  <script type="text/javascript">
+   function redire() {
+     let url=document.getElementById("url");
+	 let lbl=document.getElementById("lblmss")
+      //window.location.href=url.value;
+	  lbl.innerHTML=url.value;
+	  setTimeout('window.open(url.value,"_blank","top=500,width=400,height=400,lef=500")',5000);
+   
+   }
+   
+   
+  </script>
+</html>

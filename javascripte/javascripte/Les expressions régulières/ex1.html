@@ -1,0 +1,333 @@
+<html>
+	<head>
+		<title>Application</title>
+		<style>
+		#infos
+	  {
+	    border : 1px solid black;
+		background-color:red;
+		height:auto;
+	  }
+	</style>
+	</head>
+	<body >
+			<form >
+				<fieldset>
+				<table>
+				   <tr>
+				            <td>Matricule:</td>
+							<td><input type="text"  id="matricule" /></td>
+							<td><label id="lblmatricule1"></label></td>
+							<td><label id="lblmatricule"></label></td>
+					</tr>
+					<tr>
+							<td>Nom:</td>
+							<td><input type="text"  id="nom"  /></td>
+							<td><label id="lblnom1"></label></td>
+							<td><label id="lblnom"></label></td>
+					</tr>
+					<tr>
+							<td>Prénom:</td>
+							<td><input type="text"  id="prénom"  /></td>
+							<td><label id="lblprenom1"></label></td>
+							<td><label id="lblprenom"></label></td>
+					</tr>
+					<tr>
+							<td>Salaire:</td>
+							<td><input type="text"  id="salaire" /></td>
+							<td><label id="lblsalaire1"></label></td>
+							<td><label id="lblsalaire"></label></td>
+					</tr>
+					<tr>
+							<td>Email : </td>
+							<td><input type="email" id="email" /></td>
+							<td><label id="lblemail1"></label></td>
+							<td><label id="lblemail"></label></td>
+							</tr>
+					<tr>
+							<td>Url:</td>
+							<td><input type="text"  id="url"   /></td>
+							<td><label id="lblurl1"></label></td>
+							<td><label id="lblurl"></label></td>
+					</tr><tr>
+							<td>Tele : </td>
+							<td><input type="tel" id="tel" /></td>
+							<td><label id="lbltel1"></label></td>
+							<td><label id="lbltel"></label></td>
+							</tr>
+					<tr>
+							<td>Code postal:</td>
+							<td><input type="text"  id="postal"   /></td>
+							<td><label id="lblpostal1"></label></td>
+							<td><label id="lblpostal"></label></td>
+					</tr>
+					<tr>
+							<td></td>
+							<td><input type="button" value="valider" onclick="valider()"/></td>
+					</tr>
+					</table>
+				</fieldset>
+			</form>
+			<h1>Infos client :</h1>
+			<div id="infos" ></div>
+			<script>
+			//récuperation des variables
+			var Matricule = document.getElementById('matricule');
+			var nom = document.getElementById('nom');
+			var prenom = document.getElementById('prénom');
+			var salaire = document.getElementById('salaire');
+			var email = document.getElementById('email');
+			var url = document.getElementById('url');
+			var tel = document.getElementById('tel');
+			var postal = document.getElementById('postal');
+			var lblMatricule = document.getElementById("lblmatricule");
+			var lblurl = document.getElementById("lblurl");
+			var lbltel = document.getElementById("lbltel");
+			var lblsalaire = document.getElementById("lblsalaire");
+			var lblemail = document.getElementById("lblemail");
+			var lblprenom = document.getElementById("lblprenom");
+			var lblpostal = document.getElementById("lblpostal");
+			var lblnom = document.getElementById("lblnom");
+			var lblmatricule1=document.getElementById("lblmatricule1");
+			var lblnom1=document.getElementById("lblnom1");
+			var lblprenom1=document.getElementById("lblprenom1");
+			var lblsalaire1=document.getElementById("lblsalaire1");
+			var lblpostal1=document.getElementById("lblpostal1");
+			var lblemail1=document.getElementById("lblemail1");
+			var lbltel1=document.getElementById("lbltel1");
+			var test1=test2= test3= test4=test5=test6=test7=test8=false;
+			//var zone1=document.querySelector('#matricule');
+			//les fonctions de vérification par les expressions réguliers
+			function checkmatricule(matricule) {
+                let pattern = /^[0-9]{3}$/;
+                let result = pattern.test(Matricule.value);var etat1=false;
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			function checknom(nom) {
+                let pattern = /^[A-Z]+$/;
+                let result = pattern.test(nom.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			function checkprenom(prenom) {
+                let pattern = /^[A-Z][a-z]{3,9}$/;
+                let result = pattern.test(prenom.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			function checksalaire(salaire) {
+                let pattern = /^[1-9]{4,9}$/;
+                let result = pattern.test(salaire.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			function checkemail(email) {
+                let pattern = /^[a-zA-Z0-9]+@(gmail|yahoo|hotmail).(com|fr|ma)$/;
+                let result = pattern.test(email.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			function checkurl(url) {
+                let pattern = /^(www.)[a-zA-Z0-9]+.(com|fr|ma)$/;
+                let result = pattern.test(url.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			function checktel(tel) {
+                let pattern = /^(\+212|0)(6|7)(\s)?[0-9]{8}$/;
+                let result = pattern.test(tel.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			function checkpostal(postal) {
+                let pattern = /^[0-9]{5}$/;
+                let result = pattern.test(postal.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			//les fonctions de vérification des zones obligatoires
+			Matricule.addEventListener("keyup",checkzone1);
+			nom.addEventListener("keyup",checkzone2);
+			prenom.addEventListener("keyup",checkzone3);
+			salaire.addEventListener("keyup",checkzone4);
+			postal.addEventListener("keyup",checkzone8);
+			tel.addEventListener("keyup",checkzone5);
+			url.addEventListener("keyup",checkzone6);
+			email.addEventListener("keyup",checkzone7);
+		    function checkzone1(){
+				 if(Matricule.value.trim()==""){
+				        lblmatricule1.innerHTML="(*)";
+				        lblmatricule.innerHTML="";
+				        test1= false;
+				 }
+				 else{
+				    lblmatricule1.innerHTML="";
+				    test1= true;
+				 }
+		    }
+			function checkzone2(){
+				 if(nom.value.trim()==""){
+				        lblnom1.innerHTML="(*)";
+				        lblnom.innerHTML="";
+				        test2= false;
+				 }
+				 else{
+				    lblnom1.innerHTML="";
+				    test2= true;
+				 }
+		    }
+			function checkzone3(){
+				 if(prenom.value.trim()==""){
+				        lblprenom1.innerHTML="(*)";
+				        lblprenom.innerHTML="";
+				        test3= false;
+				 }
+				 else{
+				    lblprenom1.innerHTML="";
+				    test3= true;
+				 }
+		    }
+			function checkzone4(){
+				 if(salaire.value.trim()==""){
+				        lblsalaire1.innerHTML="(*)";
+				        lblsalaire.innerHTML="";
+				        test4= false;
+				 }
+				 else{
+				    lblsalaire1.innerHTML="";
+				    test4= true;
+				 }
+		    }
+			function checkzone5(){
+				 if(tel.value.trim()==""){
+				        lbltel1.innerHTML="(*)";
+				        lbltel.innerHTML="";
+				        test5= false;
+				 }
+				 else{
+				    lbltel1.innerHTML="";
+				    test5= true;
+				 }
+		    }
+			function checkzone6(){
+				 if(url.value.trim()==""){
+				        lblurl1.innerHTML="(*)";
+				        lblurl.innerHTML="";
+				        test6= false;
+				 }
+				 else{
+				    lblurl1.innerHTML="";
+				    test6= true;
+				 }
+		    }
+			function checkzone7(){
+				 if(email.value.trim()==""){
+				        lblemail1.innerHTML="(*)";
+				        lblemail.innerHTML="";
+				        test7= false;
+				 }
+				 else{
+				    lblemail1.innerHTML="";
+				    test7= true;
+				 }
+		    }
+			function checkzone8(){
+				 if(postal.value.trim()==""){
+				        lblpostal1.innerHTML="(*)";
+				        lblpostal.innerHTML="";
+				        test8= false;
+				 }
+				 else{
+				    lblpostal1.innerHTML="";
+				    test8= true;
+				 }
+		    }
+			//fonction de validation
+		function valider(){ 
+		       var etat1=checkmatricule(Matricule);
+			   var etat2=checknom(nom);
+			   var etat3=checkprenom(prenom);
+			   var etat4=checksalaire(salaire);
+			   var etat5=checkemail(email);
+			   var etat6=checkurl(url);
+			   var etat7=checktel(tel);
+		       var etat8=checkpostal(postal);
+			   var infosdiv=document.getElementById("infos");
+		       var infosd="";
+			   if(test1==true){
+			      if(etat1==true){
+				    lblmatricule.innerHTML="";}
+			      else if(etat1==false){
+			        lblmatricule.innerHTML="il faut écrire 3 chiffres!";}}
+			   if(test2==true){ 
+			    if(etat2==true){
+				    lblnom.innerHTML="";}
+			   else if (etat2==false){
+			        lblnom.innerHTML="il faut écrire votre nom en majiscule!";
+			   }}
+			   if(test3==true){ 
+			   if(etat3==true){
+				    lblprenom.innerHTML="";}
+			   else if (etat3==false){
+			        lblprenom.innerHTML="il faut écrire le premier caractère en majiscule!";
+			   }}
+			  if(test4==true){ if(etat4==true){
+				    lblsalaire.innerHTML="";}
+			   else if (etat4==false){
+			        lblsalaire.innerHTML="il faut écrire nombre digital!";
+			   }}
+			   if(test7==true){ if(etat5==true){
+				    lblemail.innerHTML="";}
+			   else if (etat5==false){
+			        lblemail.innerHTML="   @(gmail/yahou).(com/fr/ma)";
+			   }}
+			   if(test6==true){ 
+			   if(etat6==true){
+				    lblurl.innerHTML="";}
+			   else if (etat6==false){
+			        lblurl.innerHTML="www.    .(com/fr/ma)";
+			   }}
+			   if(test5==true){
+			   if(etat7==true){
+				    lbltel.innerHTML="";}
+			   else if (etat7==false){
+			        lbltel.innerHTML="respecter format telephone!";
+			   }}
+			  if(test8==true){ if(etat8==true){
+				    lblpostal.innerHTML="";}
+			   else if (etat8==false){
+			        lblpostal.innerHTML="respecter format de code postal!";
+			   }}
+			   //partie d'affichage
+			   if(etat1==true&&etat2==true&&etat3==true&&etat4==true&&etat5==true&&etat6==true&&etat7==true&&etat8==true){
+			   infosd+= "Matricule : "+Matricule.value+"<br/>";
+			   infosd+="Nom : "+nom.value+"<br/>";
+			   infosd+="Prénom : "+prenom.value+"<br/>";
+			   infosd+="Salaire : "+salaire.value+"<br/>";
+			   infosd+="Email : "+email.value+"<br/>";
+			   infosd+="Url : "+url.value+"<br/>";
+			   infosd+="Tel : "+tel.value+"<br/>";
+			   infosd+="Code postal : "+postal.value+"<br/>";
+			   infosdiv.innerHTML=infosd;}
+			   else infosdiv.innerHTML="";}
+		</script>
+	</body>
+</html>
+         

@@ -1,0 +1,85 @@
+<html>
+    <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>test1</title>
+		 <style>
+		       input{
+			       
+			   }
+		 </style>
+		 
+	    <script type="text/javascript">
+		function infos()
+			{
+			  var pain= document.getElementById("pain").value;
+			  var viande= document.getElementById("viande").value;
+			  var Légumes= document.getElementById("Légumes").value;
+			  var banane= document.getElementById(" banane").value;
+			  var pomme= document.getElementById("pomme").value;
+			  var yaourt= document.getElementById("yaourt").value;
+			  if(pain.checked==true){resultat1=pain*275/100}
+			  if(viande.checked==true){resultat2=viande*180}
+			  if(Légumes.checked==true){resultat3=Légumes*40}
+			  if(banane.checked==true){resultat4=banane*116/100}
+			  if(pomme.checked==true){resultat5=pomme*80/100}
+			  if(yaourt.checked==true){resultat6=yaourt*140/100}
+			  resultat1
+		
+	       }
+		  
+			
+		</script>
+    </head>
+    <body>
+	      <form method="post" action="http://monsite/index.html">
+				<fieldset width="50%" border ="1" cellspacing="0" cellpadding="0" style="border-color:blue">
+				<table   height="50px">
+				  <tr><td><h1>Calcul valeur énergétique d'un repas</h1></td><tr>
+				  <tr></tr>
+				  <tr><td><h2>choisir les aliments qui composent votre repas:</h2></td></tr>
+				  <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+				  	
+					<tr>
+						<td><input type="checkbox" name="pain" id="pain" value="pain">
+						<label for="pain">Pain :</label>
+						<input type="text"  id="zone1"   /><label for="pain"> &nbsp;&nbsp; grammes</label></td>
+							</tr>
+							<tr>
+						<td><input type="checkbox" name="viande" id="viande" value="viande"/>
+						<label for="viande">Viande :</label>
+						<input type="text"  id="zone2"   /><label for="viande"> &nbsp;&nbsp; grammes</label></td>
+							</tr><tr>
+						<td><input type="checkbox" name="légumes" id="légumes" value="légumes">
+						<label for="légumes">Légumes :</label>
+						<input type="text"  id="zone3"   /><label for="légumes"> &nbsp;&nbsp; grammes</label></td>
+							</tr>
+							<tr>
+						<td><input type="checkbox" name="banane" id="banane" value="banane">
+						<label for="banane">Banane :</label>
+						<input type="text"  id="zone4"   /><label for="banane"> &nbsp;&nbsp; grammes</label></td>
+							</tr>
+							<tr>
+						<td><input type="checkbox" name="pomme" id="pomme" value="pomme">
+						<label for="pomme">Pomme :</label>
+						<input type="text"  id="zone5"   /><label for="pomme"> &nbsp;&nbsp; grammes</label></td>
+							</tr>
+							<tr>
+						<td><input type="checkbox" name="yaourt" id="yaourt" value="yaourt">
+						<label for="yaourt">Yaourt :</label>
+						<input type="text"  id="zone6"   /><label for="yaourt"> &nbsp;&nbsp; grammes</label></td>
+							</tr>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<tr>
+				            <td><input type="button"  value="calculer" id="R1"></td>
+						</tr>
+				  </table>
+				</fieldset>
+			</form>
+						
+						
+							
+					</table>
+				</fieldset>
+			</form>
+    </body>
+</html>

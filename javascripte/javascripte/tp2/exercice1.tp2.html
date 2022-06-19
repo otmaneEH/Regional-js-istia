@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>exercice1</title>
+        <script type="text/javascript">
+           function calculer()
+           {
+            var paine=document.getElementById("pain");
+            var viande=document.getElementById("viande");
+            var legumes=document.getElementById("legumes");
+            var banane=document.getElementById("banane");
+            var pomme=document.getElementById("pomme");
+            var yaourt=document.getElementById("yaourt");
+            var resultat=document.getElementById("resultat")
+           var zone1=document.getElementById("zone1").value;
+           var zone2=document.getElementById("zone2").value;
+           var zone3=document.getElementById("zone3").value;
+           var zone4=document.getElementById("zone4").value;
+           var zone5=document.getElementById("zone5").value;
+           var zone6=document.getElementById("zone6").value;
+		   var c=0;
+		   var total=0;
+           if(pain.checked==true)
+           {
+               total=total+parseFloat(zone1)*2.75;
+			   c++;
+           }
+           if(viande.checked==true)
+           {
+               total=total+parseFloat(zone2)*1.8;
+			   c++;
+           }
+           if(legumes.checked==true)
+           {
+               total=total+parseFloat(zone3)*0.4;
+			   c++;
+           }
+           if(banane.checked==true)
+           {
+               total=total+parseFloat(zone4)*116;
+			   c++;
+           }
+           if(pomme.checked==true)
+           {
+               total=total+parseFloat(zone5)*80;
+			   c++;
+           }
+           if(yaourt.checked==true)
+           {
+               total=total+parseFloat(zone6)*140;
+			   c++;
+           }
+		   if(c==0){
+		      alert(""erreur")
+		   }
+		   else{
+           resultat.value=total;
+         }
+   }
+    
+        </script>
+    </head>
+    <body>					<fieldset width="auto" border ="1" cellspacing="0" cellpadding="0" style="border-color:blue">
+
+        <h1>Calcul valeur energetique d'un repas </h1>
+        <h2>Choisir les aliments qui composent votre repas :</h2>
+        <form action="get" method="test.php">
+            <table >
+                <tr>
+                    <td><input type="checkbox" id="pain"/>Pain :</td>
+                    <td><input type="text" id="zone1"/></td>
+                    <td ><label >grammes</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="viande" />Viande :</td>
+                    <td><input type="text" id="zone2"/></td>
+                    <td ><label >grammes</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="legumes" />Legumes :</td>
+                    <td><input type="text" id="zone3"/></td>
+                    <td ><label >grammes</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"  id="banane"/>Banane :</td>
+                    <td><input type="text" id="zone4"/></td>
+                    <td ><label >unites</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="pomme" />Pomme :</td>
+                    <td><input type="text" id="zone5"/></td>
+                    <td ><label >unites</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="yaourt" />Yaourt:</td>
+                    <td><input type="text" id="zone6"/></td>
+                    <td ><label >unites</label></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" value="calculer" onclick="calculer()" /></td>
+                    <td ></td>
+                </tr><tr>
+                    <td colspan="2">La valeur energetique de votre repas est :</td>
+                    <td><input type="text" id="resultat"/>
+                    <label >Kilos calories</label></td>
+                </tr>
+            </table>
+			</fieldset>
+        </form>
+		
+    </body>
+</html>

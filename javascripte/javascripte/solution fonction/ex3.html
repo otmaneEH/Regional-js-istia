@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript">
+		var a,b,c,d,x,x1,x2;
+		a=parseInt(prompt("saisir a:"));
+		b=parseInt(prompt("saisir b:"));
+		c=parseInt(prompt("saisir c:"));
+		if(a==0){
+			console.log("voir la solution d'équation de premier degré");
+		}
+		else{
+			d=b**2-4*a*c;
+			if (d==0) {
+				x=b/2*a;
+				console.log("la solution est "+x);
+
+			}
+			else{
+				if(d>0){
+					x1=(-b-Math.sqrt(d)/2*a);
+					x2=(-b+Math.sqrt(d)/2*a);
+					console.log(x1,"et",x2);
+				}
+				else{
+					console.log("pas de solution");
+				}
+			}
+		}
+	</script>
+	<title>ex3</title>
+</head>
+<body>
+
+</body>
+</html>

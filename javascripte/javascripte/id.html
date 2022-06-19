@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript">
+	   function calculer(){
+	        //code javascript
+			//recuperer l valeur de la zone de texte 1 identifiant par nbr1
+			var nbr1=document.getElementById("nbr1").value;
+			var nbr2=document.getElementById("nbr2").value;
+			var somme=parseInt(nbr1)+parseInt(nbr2);
+			var resultat=document.getElementById("resultat");
+			resultat.value=somme;
+			
+	   }
+		
+	</script>
+	<title>ex11</title>
+</head>
+<body>
+     <table>
+	     <caption> calculer</caption>
+	       <tr>
+		       <td>saisir:a</td> 
+		       <td><input type="text" id="nbr1"></td> 
+		   </tr>
+		    <tr>
+		       <td>saisir:b</td> 
+		       <td><input type="text" id="nbr2"></td> 
+		   </tr>
+		    <tr>
+		       <td>resultat</td> 
+		       <td><input type="text" id="resultat"></td> 
+		   </tr>
+		    <tr>
+		       <td><input type="submit" onclick= calculer()value="calculer"></td> 
+		       <td><input type="reset" id="nbr1"></td> 
+		   </tr>
+	 </table>
+
+</body>
+</html>

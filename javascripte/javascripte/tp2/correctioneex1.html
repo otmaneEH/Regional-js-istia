@@ -1,0 +1,89 @@
+<html>
+    <head>
+	<title>exercice4</title>
+		<script type="text/javascript">
+		function checkheureSupp(NbheureSupp){
+		         var lblNombre=document.getElementById("lblNombre")
+		         if(NbheureSupp==""){
+				    lblNombre.innerHTML="(*)";
+					return false;
+				 }
+				 else if(isNaN(NbheureSupp)==true){
+				    lblNombre.innerHTML="valeur numérique!";
+					return false;
+				 }
+				 else if(NbheureSupp<0 || NbheureSupp>30 ){
+				    lblNombre.innerHTML="planfond est 30h";
+					return false;
+				 }
+				    return true;
+			    }
+		function checkprixheureSupp(PrixheureSupp){
+		         var lblPrix=document.getElementById("lblPrix")
+		         if(PrixheureSupp==""){
+				    lblPrix.innerHTML="(*)";
+					return false;
+				 }
+				 else if(isNaN(PrixheureSupp)==true){
+				    lblPrix.innerHTML="valeur numérique!";
+					return false;
+				 }
+				 else if(PrixheureSupp<50 || PrixheureSupp>150 ){
+				    lblPrix.innerHTML="prix est entre 50 et 150!";
+					return false;
+				 }
+				    return true;
+			    }
+		function calculer()
+		{
+		         var r1=document.getElementById("r1");
+				 var prix=document.getElementById("prix");
+				 var nombre=document.getElementById("nombre");
+		         var etat1=checkheureSupp(nombre.value);
+		         var etat2=checkprixheureSupp(prix.value);
+				 var div=document.getElementById("infosDiv");
+				 if(etat1==true && etat2==true)
+				 {
+				      if(r1.checked)
+					      div.innerHTML+="Formateur : permanant"+"<br/>";
+					  else
+					     div.innerHTML+="Formateur : vacataire"+"<br/>";
+						 
+				      div.innerHTML+="Le nombre d'heure est : "+nombre.value+" heure(s)"+"<br/>";
+				      div.innerHTML+="Le montant est : "+prix.value*nombre.value+" DH";
+				}
+		}
+		
+		</script>
+		</head>
+		<body>
+				<form method="post" action="traitement.php">
+					<fieldset>
+                 <table>
+				     <tr><td><h1>Calcul heure supp Mensuel</h1></td></tr>
+					 <tr>
+							<td>Formateur:</td>
+							<td>
+							permanent<input checked="true" value="permanent" type="radio" id="r1"  name="formateur"/>
+							vocataire<input type="radio" value="vocataire" id="r2" name="formateur" /></td>
+					</tr>
+					<tr><td >Prix heure Supp: </td>
+						<td><input type="text" id="prix"/></td><td>(Dh)</td>
+						<td><label id="lblPrix" style="color:red"></label> </td>
+						
+					</tr>
+					<tr><td >Nombre heure Supp: </td>
+						<td><input type="text" id="nombre"/></td><td></td>
+						<td><label id="lblNombre" style="color:red"></label> </td>
+						
+					</tr>
+					</tr>
+					<tr>
+					<td><input type="button" value="calculer" onclick="calculer()" /></td></tr>
+					</table>
+			<div id="infosDiv" ></div>
+			</fieldset>
+		</form>
+		
+</body>
+</html>

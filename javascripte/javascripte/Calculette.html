@@ -1,0 +1,125 @@
+<html>
+    <head>
+	    <title>test1</title>
+		 
+	    <script type="text/javascript">
+		  function calculer()
+		  {
+				var val1=document.getElementById("zone1").value;
+				var val2=document.getElementById("zone2").value;
+				var R1=document.getElementById("R1");
+				var R2=document.getElementById("R2");
+				var R3=document.getElementById("R3");
+				var R4=document.getElementById("R4");
+			    var zone3=document.getElementById("zone3");
+				var val3;
+				
+				
+				if(val1.trim()=="" || val2.trim()=="")
+				{
+				  alert("tous les champs sont obligatoires");
+				}
+				else
+				{
+				     //verifier que les valeurs renseignés sont numérique
+					 if(isNaN(val1)==true || isNaN(val2)==true)
+					 {
+					   alert("les valeurs doivent etre numérique");
+					 }
+					 else
+					 {
+					   // calcul 
+							if(R1.checked==true)
+								{
+								  val3=parseFloat(val1)+ parseFloat(val2);
+								}
+							else if( R2.checked==true)
+								{
+								  val3=parseFloat(val1)- parseFloat(val2);
+								}
+							else if(R3.checked == true)
+								{
+								  val3=parseFloat(val1)* parseFloat(val2);
+								}
+							else if(R4.checked==true)
+								{
+								  val3=parseFloat(val1)/ parseFloat(val2);
+								}
+								// affichage de résultat
+							zone3.value=val3;
+					   
+					   
+					 }
+				}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		  }
+			
+		</script>
+    </head>
+    <body>
+	              <table border="1px">
+				      <caption> 
+							    Calculette
+							</caption>
+		               <tr>
+							<td> 
+							     Saisir a  : 
+							</td>
+							<td>
+     							<input type="text"  id="zone1" />
+								
+							</td>
+							
+						</tr>
+						<tr>
+							<td> 
+							     Saisir b  : 
+							</td>
+							<td>
+     							<input type="text" id="zone2"/>
+							</td>
+							
+						</tr>
+						<tr>
+							
+							<td colspan="2">
+     							+<input type="radio" checked="true" name="op" id="R1"/>&nbsp;&nbsp;&nbsp;&nbsp;
+								-<input type="radio" name="op" id="R2"/>&nbsp;&nbsp;&nbsp;&nbsp;
+								*<input type="radio" name="op" id="R3"/>&nbsp;&nbsp;&nbsp;&nbsp;
+								/<input type="radio"  name="op" id="R4"/>
+							</td>
+							
+						</tr>
+							<tr>
+							<td> 
+							     résultat   : 
+							</td>
+							<td>
+     							<input type="text" id="zone3"/>
+							</td>
+							
+						</tr>
+						 <tr>
+						     <td> 
+							     
+							</td>
+							<td> 
+							      <input type="button" onclick="calculer();"  value="calculer"/>
+							</td>
+						
+							
+						</tr>
+		          </table>
+		 
+		 
+			
+    </body>
+</html>

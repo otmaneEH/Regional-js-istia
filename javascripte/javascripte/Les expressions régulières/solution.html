@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+<body>
+    <FORM name="inscription">
+        <fieldset>
+            <table>
+                <tr>
+                    <td>
+                        <lab>Matricule:</lab>
+                    </td>
+                    <td>
+                        <input type="text" name="matricule"id="zone1"class="test1" >
+						<label for="zone1" id="lblmatricule"class="test1" >(*)</label>
+                    </td>
+                    <td>
+                        <div id="div1"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <lab>Nom :</lab>
+                    </td>
+                    <td>
+                        <input type="text" name="nom" id="zone2"class="test2" >
+						<label for="zone2"id="lblnom"class="test2" >(*)</label>
+                    </td>
+                    <td>
+                        <div id="div2"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <lab>Prenom :</lab>
+                    </td>
+                    <td>
+                        <input type="text" name="prenom" id="zone3"class="test3" >
+						<label  for="zone3"id="lblprenom"class="test3" >(*)</label>
+                    </td>
+                    <td>
+                        <div id="div3"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <lab>E-mail :</lab>
+                    </td>
+                    <td>
+                        <input type="text" name="mail" id="zone4"class="test4" >
+						<label for="zone4" id="lblemail"class="test4" >(*)</label>
+                    </td>
+                    <td>
+                        <div id="div4"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <lab>Tel :</lab>
+                    </td>
+                    <td>
+                        <input type="text" name="tel" id="zone5"class="test5" >
+						<label for="zone5"id="lbltele"class="test5" >(*)</label>
+                    </td>
+                    <td>
+                        <div id="div5"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <lab>Url :</lab>
+                    </td>
+                    <td>
+                        <input type="text" name="url" id="zone6"class="test6" >
+						<label for="zone6" id="lblurl"class="test6" >(*)</label>
+                    </td>
+                    <td>
+                        <div id="div6"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <lab>Code Postale :</lab>
+                    </td>
+                    <td>
+                        <input type="text" name="cdp" id="zone7"class="test7" >
+						<label for="zone7" id="lblpostal"class="test7" >(*)</label>
+                    </td>
+                    <td>
+                        <div id="div7"></div>
+                    </td>
+            </table>
+            <input type="button" value="Ok" onclick="CheckForm(this.form)"><br>
+            <p>Les informations sont :</p>
+            <div id="main"></div>
+        </fieldset>
+    </FORM>
+    <script>
+	        var test1 = document.getElementByClassName('test1');
+			function checkmatricule(test1) {
+                let pattern = /^[0-9]{3}$/;
+                let result = pattern.test(test1.value);var etat1=false;
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			var test2 = document.getElementByClassName('test2');
+			function checknom(test2) {
+			
+                let pattern = /^[A-Z]{4,9}$/;
+                let result = pattern.test(test2.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			var test3 = document.getElementByClassName('test3');
+			function checkprenom(test3) {
+                let pattern = /^[A-Z][a-z]{3,9}$/;
+                let result = pattern.test(test3.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			var salaire = document.getElementById('salaire');
+			function checksalaire(salaire) {
+                let pattern = /^[1-9]{4,9}$/;
+                let result = pattern.test(salaire.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			var email = document.getElementById('email');
+			function checkemail(email) {
+                let pattern = /^[a-zA-Z0-9]+@(gmail|yahoo).(com|fr|ma)$/;
+                let result = pattern.test(email.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			var url = document.getElementById('url');
+			function checkurl(url) {
+                let pattern = /^(www.)[a-zA-Z0-9]+.(com|fr|ma)$/;
+                let result = pattern.test(url.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			var tel = document.getElementById('tel');
+			function checktel(tel) {
+                let pattern = /^(\+212|0)(6|7)(\s)?[0-9]{8}$/;
+                let result = pattern.test(tel.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+			var postal = document.getElementById('postal');
+			function checkpostal(postal) {
+                let pattern = /^[0-9]{5}$/;
+                let result = pattern.test(postal.value);
+                if (result == true)
+		            return true;
+	            else 
+		           return false;
+	    	}
+		function valider(){ 
+		       var etat1=checkmatricule(Matricule);
+		       var etat8=checkpostal(postal);
+		       var etat6=checkurl(url);
+		       var etat7=checktel(tel);
+		       var etat4=checksalaire(salaire);
+		       var etat5=checkemail(email);
+		       var etat3=checkprenom(prenom);
+			   var infosdiv=document.getElementById("infos");
+			   var lblMatricule = document.getElementById("lblmatricule");
+			   var lblurl = document.getElementById("lblurl");
+			   var lbltel = document.getElementById("lbltel");
+			   var lblsalaire = document.getElementById("lblsalaire");
+			   var lblemail = document.getElementById("lblemail");
+			   var lblprenom = document.getElementById("lblprenom");
+			   var lblmatricule1=document.getElementById("lblmatricule1");
+			  var lblnom1=document.getElementById("lblnom1");
+			  var lblprenom1=document.getElementById("lblprenom1");
+			  var lblsalaire1=document.getElementById("lblsalaire1");
+			  var lblpostal1=document.getElementById("lblpostal1");
+			  var lblemail1=document.getElementById("lblemail1");
+			  var lbltel1=document.getElementById("lbltel1");
+			  var test1; var test2; var test3; var test4; var test5; var test6; var test7;
+		       var infosd="";
+			   if(Matricule.value.trim()==""){
+			        lblmatricule1.innerHTML = "(*)"
+                    matricule.style.borderColor = "red";
+					test1=true;
+					lblmatricule.innerHTML="";
+             } else {
+                  lblmatricule1.innerHTML = "";
+                  matricule.style.borderColor = "";
+				  test1=false;
+				  if(etat1==true){
+			      infosd+= "Matricule : "+Matricule.value+"<br/>";
+				  
+				  lblmatricule.innerHTML="";}
+			   else if(etat1==false){
+			     lblmatricule.innerHTML="il faut écrire 3 chiffres!";}}
+				 
+			  var etat2=checknom(nom);
+			   var lblnom = document.getElementById("lblnom");
+			   if(nom.value.trim()==""){
+			        lblnom1.innerHTML = "(*)"
+                    nom.style.borderColor = "red";
+					test2=true;
+					lblnom.innerHTML="";
+             } else {
+                  lblnom1.innerHTML = "";
+                  nom.style.borderColor = "";
+				  
+				  test2=false;
+				  if(etat2==true){
+			     infosd+="Nom : "+nom.value+"<br/>";
+				 lblnom.innerHTML="";}
+			   else if (etat2==false){
+			     lblnom.innerHTML="il faut écrire votre nom en majiscule!";
+				 }}
+			  if(prenom.value.trim()==""){
+			        lblprenom1.innerHTML = "(*)"
+                    prenom.style.borderColor = "red";
+					lblprenom.innerHTML="";
+					test3=true;
+             } else {
+                  lblprenom1.innerHTML = "";
+                  prenom.style.borderColor = "";
+				  test3=false;
+				  if(etat3==true){
+			     infosd+="Prénom : "+prenom.value+"<br/>";
+				 lblprenom.innerHTML="";}
+			   else if (etat3==false){
+			     lblprenom.innerHTML="il faut écrire le premier caractère en majiscule!";
+				 }}
+			 if(salaire.value.trim()==""){
+			        lblsalaire1.innerHTML = "(*)"
+                    salaire.style.borderColor = "red";
+					lblsalaire.innerHTML="";
+					test4=true;
+             } else {
+                  lblsalaire1.innerHTML = "";
+                  salaire.style.borderColor = "";
+				  test4=false; 
+				  if(etat4==true){
+			     infosd+="Salaire : "+salaire.value+"<br/>";
+				 lblsalaire.innerHTML="";}
+			   else if (etat4==false){
+			     lblsalaire.innerHTML="il faut écrire nombre digital!";
+				 }}
+			 if(email.value.trim()==""){
+			        lblemail1.innerHTML = "(*)"
+                    email.style.borderColor = "red";
+					lblemail.innerHTML="";
+					test5=true;
+             } else {
+                  lblemail1.innerHTML = "";
+                  email.style.borderColor = "";
+				  test5=false;
+				  if(etat5==true){
+			     infosd+="Email : "+email.value+"<br/>";
+				 lblemail.innerHTML="";}
+			   else if (etat5==false){
+			     lblemail.innerHTML="   @(gmail/yahou).(com/fr/ma)";
+				 }}
+			if(url.value.trim()==""){
+			        lblurl1.innerHTML = "(*)"
+                    url.style.borderColor = "red";
+					lblurl.innerHTML="";
+					test6=true;
+             } else {
+                  lblurl1.innerHTML = "";
+                  url.style.borderColor = "";
+				  test6=false;
+				  if(etat6==true){
+			     infosd+="Url : "+url.value+"<br/>";
+				 lblurl.innerHTML="";}
+			   else if (etat6==false){
+			     lblurl.innerHTML="www.    .(com/fr/ma)";
+				 }}
+				 if(tel.value.trim()==""){
+			        lbltel1.innerHTML = "(*)"
+                    tel.style.borderColor = "red";
+					lbltel.innerHTML="";
+					test7=true;
+             } else {
+                  lbltel1.innerHTML = "";
+                  tel.style.borderColor = "";
+				  test7=false;
+				  if(etat7==true){
+			     infosd+="Tel : "+tel.value+"<br/>";
+				 lbltel.innerHTML="";}
+			   else if (etat7==false){
+			     lbltel.innerHTML="respecter format telephone!";
+				 }}
+				 if(postal.value.trim()==""){
+			        lblpostal1.innerHTML = "(*)"
+                    postal.style.borderColor = "red";
+					test8=true;
+					lblpostal.innerHTML="";
+             } else {
+                  lblpostal1.innerHTML = "";
+                  postal.style.borderColor = "";
+				  test8=false;
+				  if(etat8==true){
+			     infosd+="Code postal : "+postal.value+"<br/>";
+				 lblpostal.innerHTML="";}
+			   else if (etat8==false){
+			     lblpostal.innerHTML="respecter format de code postal!";
+				 }}
+				 if(etat1==true&&etat2==true&&etat3==true&&etat4==true&&etat5==true&&etat6==true&&etat7==true&&etat8==true)
+				 infosdiv.innerHTML=infosd;
+			  if (test1 == false && test2 == false && test3 == false && test4 == false && test5 == false && test6 == false && test7 == false && test8 == false)
+            return false;
+        else
+            return true;
+		      }
+			  
+		    var zone1 = document.querySelector("#zone1");
+            var zone2 = document.querySelector("#zone2");
+            var zone3= document.querySelector("#zone3");
+            var zone4 = document.querySelector("#zone4");
+            var zone5= document.querySelector("#zone5");
+            var zone6 = document.querySelector("#zone6");
+            var zone7 = document.querySelector("#zone7");
+            var text1=text2=text3=text4=text5=text6=text7=text8=false;
+        zone1.addEventListener("keyup",checkzone1);
+        zone2.addEventListener("keyup",checkzone2);
+        zone3.addEventListener("keyup",checkzone3);
+        zone4.addEventListener("keyup",checkzone4);
+        zone5.addEventListener("keyup",checkzone5);
+        zone6.addEventListener("keyup",checkzone6);
+        zone7.addEventListener("keyup",checkzone7);
+		function checkzone1(){
+         var lblmatricule=document.querySelector("#lblmatricule");
+		 if(zone1.value.trim()=="")
+		 {
+		 lblmatricule.innerHTML="(*)";
+		 text1=false;
+		 }
+		 else
+		 {
+		   lblmatricule.innerHTML="";
+		   text1=false;
+		 }
+
+}
+function checkzone2(){
+         var lblnom=document.querySelector("#lblnom");
+		 if(zone2.value.trim()=="")
+		 {
+		 lblnom.innerHTML="(*)";
+		 text2=false;
+		 }
+		 else
+		 {
+		   lblnom.innerHTML="";
+		   text2=false;
+		 }
+
+}
+function checkzone3(){
+         var lblprenom=document.querySelector("#lblprenom");
+		 if(zone3.value.trim()=="")
+		 {
+		 lblprenom.innerHTML="(*)";
+		 text3=false;
+		 }
+		 else
+		 {
+		   lblprenom.innerHTML="";
+		   text3=false;
+		 }
+
+}function checkzone4(){
+         var lblemail=document.querySelector("#lblemail");
+		 if(zone4.value.trim()=="")
+		 {
+		 lblemail.innerHTML="(*)";
+		 text4=false;
+		 }
+		 else
+		 {
+		   lblemail.innerHTML="";
+		   text4=false;
+		 }
+
+}function checkzone5(){
+         var lbltele=document.querySelector("#lbltele");
+		 if(zone5.value.trim()=="")
+		 {
+		 lbltele.innerHTML="(*)";
+		 text5=false;
+		 }
+		 else
+		 {
+		   lbltele.innerHTML="";
+		   text5=false;
+		 }
+
+}function checkzone6(){
+         var lblurl=document.querySelector("#lblurl");
+		 if(zone6.value.trim()=="")
+		 {
+		 lblurl.innerHTML="(*)";
+		 text6=false;
+		 }
+		 else
+		 {
+		   lblurl.innerHTML="";
+		   text6=false;
+		 }
+
+}function checkzone7(){
+         var lblpostal=document.querySelector("#lblpostal");
+		 if(zone7.value.trim()=="")
+		 {
+		 lblpostal.innerHTML="(*)";
+		 text7=false;
+		 }
+		 else
+		 {
+		   lblpostal.innerHTML="";
+		   text7=false;
+		 }
+
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>application</title>
+	<style>
+	  #infosDiv
+	  {
+	    border : 1px solid black;
+		background-color:yellow;
+		height:auto;
+	  }
+	</style>
+    <script type="text/javascript">
+	         
+	
+	        function checkVide()
+			{
+			   var matricule= document.getElementById("matricule");
+			   var lblMatricule=document.getElementById("lblMatricule");
+			   var test1;
+			   
+			   var nom= document.getElementById("nom");
+			   var lblNom=document.getElementById("lblNom");
+			   var test2;
+			   
+			   var prenom= document.getElementById("prenom");
+			   var lblPrenom=document.getElementById("lblPrenom");
+			   var test3;
+			   
+			   var nationalite= document.getElementById("nationalite");
+			   var lblNationalite=document.getElementById("lblNationalite");
+			   var test4;
+			   
+			   
+			   if(matricule.value.trim()=="" )
+			   {
+			      lblMatricule.innerHTML="(*)";
+				  matricule.style.backgroundColor="red";
+				  test1=true;
+				  
+			   }
+			   else
+			   {
+			      lblMatricule.innerHTML="";
+				  matricule.style.backgroundColor="";
+				  test1= false;
+			   }
+			   
+			    if(nom.value.trim()=="" )
+			   {
+			      lblNom.innerHTML="(*)";
+				  nom.style.backgroundColor="red";
+				  test2=true;
+				  
+			   }
+			   else
+			   {
+			       lblNom.innerHTML="";
+				   nom.style.backgroundColor="";
+				  test2= false;
+			   }                         
+			   
+			    if(prenom.value.trim()=="" )
+			   {
+			      lblPrenom.innerHTML="(*)";
+				  prenom.style.backgroundColor="red";
+				  test3=true;
+				  
+			   }
+			   else
+			   {
+			       lblPrenom.innerHTML="";
+				    prenom.style.backgroundColor="";
+				   test3= false;
+			   }
+			   
+			     if(nationalite.value.trim()=="rien" )
+			   {
+			      lblNationalite.innerHTML="(*)";
+				  nationalite.style.backgroundColor="red";
+				  test4=true;
+				  
+			   }
+			   else
+			   {
+			       lblNationalite.innerHTML="";
+				    nationalite.style.backgroundColor="";
+				   test4= false;
+			   }
+			   
+			 
+			  if(test1==false && test2==false && test3==false && test4==false)
+			    return false;
+			  else
+			    return true;
+			  
+			
+			}
+			function infos()
+			{
+			  var matricule= document.getElementById("matricule").value;
+			  var nom= document.getElementById("nom").value;
+			  var prenom= document.getElementById("prenom").value;
+			  var r1=document.getElementById("r1");
+			  var sexe="";
+               if(r1.checked==true)
+			     sexe = "Féminin";
+			   else
+			      sexe="Masculin";
+				  
+			  var nationalite = document.getElementById("nationalite").value;
+              var email = document.getElementById("email").value;
+              var tel = document.getElementById("tel").value;	
+              var chk1=	 document.getElementById("ar");	
+              var chk2=	 document.getElementById("fr");				  
+              var chk3=	 document.getElementById("ang");
+			  var langues="";
+			  if(chk1.checked==true)
+			     langues += chk1.value + "  ";
+			  if(chk2.checked==true)
+			     langues += chk2.value + "  ";
+			  if(chk3.checked==true)
+			     langues += chk3.value + "  ";
+			   
+			   
+			  // alert(matricule +  " "+nom+ "  "+ prenom + " "+ sexe+ " "+email+ " "+nationalite + " "+ tel+" "+langues);
+			   var infos="";
+			   infos += "Matricule :"+ matricule+ "<br/>" ;
+			   infos += "Nom & Prénom :"+ nom+ " " + prenom +"<br/>" ;
+			   infos += "sexe :"+ sexe +"<br/>" ;
+			   infos += "Vous etes de nationnalité :"+  nationalite +"<br/>" ;
+			   infos += "Email :"+ email +"<br/>" ;
+			   infos += "Télephone :"+ tel +"<br/>" ;
+			   if(langues=="")
+			      infos += "Langues maitrisées : aucune langues maitrisées<br/>" ;
+		       else
+			       infos += "Langues maitrisées :"+langues+"<br/>" ;
+			   //alert(infos);
+			   var infosDiv=document.getElementById("infosDiv");
+			   if(checkVide()==false)
+			   {
+			    
+			      infosDiv.innerHTML=infos;
+			   }
+			  
+			  
+			}
+			
+	
+	</script>
+</head>
+<body>
+			<form>
+				<fieldset>
+					<legend>client</legend>
+					<table>
+						<tr>
+							<td>matricule:</td>
+							<td><input type="text" id="matricule"/></td>
+							<td><label id="lblMatricule" style="color:red"></label> </td>
+						</tr>
+						<tr>
+							<td>nom:</td>
+							<td><input type="text" id="nom"/></td>
+							<td><label id="lblNom" style="color:red"></label> </td>
+						</tr>
+						<tr>
+							<td>prenom:</td>
+							<td><input type="text" id="prenom"/></td>
+							<td><label id="lblPrenom" style="color:red"></label> </td>
+						</tr>
+						<tr>
+							<td>sexe:</td>
+							<td>
+								f<input type="radio" id="r1" checked="true" name="sexe">
+								m<input type="radio" id="r2" name="sexe">
+							</td>
+						</tr>
+						<tr>
+							<td>nationalité:</td>
+							<td>
+							  <select  id="nationalite">
+							  		<option value="rien" selected="true">choisir un pays</option>
+		                            <option value="maroc">maroc</option>
+									<option value="espagne">espagne</option>
+									<option value="france">france</option>
+							   </select>
+							</td>
+							<td><label id="lblNationalite" style="color:red"></label> </td>
+						</tr>
+						<tr>
+							<td>Email:</td>
+							<td><input type="email" id="email" /></td>
+						</tr>
+						<tr>
+							<td>TEL:</td>
+							<td><input type="tel" id="tel" /></td>
+						</tr>
+						<tr>
+							<td>langues:</td>
+							<td>
+								ar<input type="checkbox" id="ar" value="arabe"/>
+								fr<input type="checkbox" id="fr" value="francais"/>
+								ang<input type="checkbox" id="ang" value="anglais">
+							</td>
+						</tr>
+						<tr>
+							<td> </td>
+							<td><input type="button"  value="afficher infos" onclick="infos()"></td>
+						</tr>
+					</table>
+				</fieldset>
+			</form>
+			<h1>Infos client :</h1>
+			<div id="infosDiv">
+			  
+			</div>
+</body>
+</html>

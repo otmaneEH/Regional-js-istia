@@ -1,0 +1,43 @@
+<html>
+   <head>
+   <style>
+  
+   </style>
+   </head>
+   <body onload="settime()" id="body">
+    
+		<table>
+				   <tr>
+				        <td><input type="radio" id="r1" name="couleurs"/><label>Rouge</label></td>
+				        <td><input type="radio" id="r2" name="couleurs"/><label>Vert</label></td>
+				        <td><input type="radio" id="r3" name="couleurs"/><label>Jaune</label></td></table>
+				  
+		
+	<script>
+	 var body=document.getElementById("body");
+	 var x=1;
+	 function colorer(){
+	         
+			 if(x==1){
+			     r1.checked=true;
+				 body.style.backgroundColor="red";
+				 x=2;
+			 }
+			 else if(x==2){
+			     r2.checked=true;
+				 body.style.backgroundColor="green";
+				 x=3
+			 }
+			 else if(x==3){
+			     r3.checked=true;
+				 body.style.backgroundColor="yellow";
+				 x=1
+			 }
+	 }
+	 var t;
+	 function settime(){
+	        t=setInterval(colorer,2000);
+	 }
+	</script>
+   </body>
+  </html>

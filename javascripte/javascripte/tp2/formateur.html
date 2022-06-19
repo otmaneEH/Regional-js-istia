@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercice calculer salaire</title>
+	<style>
+	 div{
+	   color:green;
+	 }
+	</style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend><b>Calcul Heur supp mensuel</b></legend>
+            <table>
+                <tr>
+                    <td>
+                        <label for="formateur">Formateur : </label>
+                    </td>
+                    <td>
+                        <input type="radio"name="ra" checked="true" id="permanent">Permanent
+                        
+                    </td>
+                    <td colspan="2">
+                        <input type="radio"name="ra" id="vocataire">Vocataire
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="prix">Prix heur supp :  </label>
+                    </td>
+                    <td>
+                        <input type="text"  id="prix">
+                    </td>
+                    <td>
+                        <p id="oprix" style="color: red;"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="heur">Nombre Heure supp : </label>
+                    </td>
+                    <td>
+                        <input type="text"  id="heur">
+                    </td>
+                    <td>
+                        <p id="oheur" style="color: red;"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="reset" value="Effacer">
+                    </td>
+                    <td>
+                        <input type="Button" value="Calculer" onclick="val()">
+                    </td>
+                </tr>
+            </table>
+            <div id="divaff" ></div>
+        </fieldset>
+    </form>
+
+
+    <script>
+        permanent=document.getElementById("permanent")
+        vocataire=document.getElementById("vocataire")
+        prix=document.getElementById("prix")
+        oprix=document.getElementById("oprix")
+        heur=document.getElementById("heur")
+        oheur=document.getElementById("oheur")
+        divaff=document.getElementById("divaff")
+        function aff(){
+            var info="";
+
+            info+="Formateur : "
+            if(vocataire.checked){
+                info+=" Vocataire </br>"
+            }
+            else{
+                info+=" Permanent </br>"
+            }
+            info+=" Le nombre d'heure est : "+heur.value+" heure</br>"
+            info+=" Le montant est : "+(prix.value*heur.value)+" DH"
+            
+            divaff.innerHTML=info
+
+
+
+
+
+        }
+        function val(){
+            var ts1=false,ts2=false;
+            if(prix.value.trim()==""){
+                oprix.innerHTML="(*)"
+            }
+            
+            
+            else if(isNaN(prix.value)){
+                oprix.innerHTML="Valeur Numérique"
+            }
+            
+            else if(parseFloat(prix.value)<50||(parseFloat(prix.value)>150)){
+                oprix.innerHTML="Prix est Entre 50 ET 150 DH"
+            }
+            else{
+                oprix.innerHTML=""
+                ts1=true
+                
+            }
+            if(heur.value.trim()==""){
+                oheur.innerHTML="(*)"
+            }
+            
+            
+            else if(isNaN(heur.value)){
+                oheur.innerHTML="Valeur Numérique"
+            }
+            
+            else if(parseFloat(heur.value)<=0||(parseFloat(heur.value)>=31)){
+                oheur.innerHTML="Planfand est 30h "
+            }
+            else{
+                oheur.innerHTML=""
+                ts2=true
+                
+            }
+            if(ts1==true&&ts2==true){
+                aff()
+            }
+            else{
+                divaff.innerHTML=""
+            }
+            
+            
+
+
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

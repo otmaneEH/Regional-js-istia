@@ -1,0 +1,30 @@
+ #- Installez les différents pilotes des composants matériels de l’ordinateur,
+ À cause de la diversité des matériels modernes et des systèmes d'exploitation, il existe une multitude de pilotes. Ils gèrent l'interface entre le système d'exploitation (voire application à l'époque du DOS) et le matériel :
+
+des imprimantes ;
+des cartes vidéo ;
+des cartes réseau ;
+des cartes son (par exemple : pilotes Realtek AC'97 Audio, rvlkl.exe) ;
+des bus locaux de divers types, en particulier pour gérer les bus sur les systèmes modernes ;
+des bus d'entrée/sortie de plusieurs types (par exemple pour les souris, claviers, l'Universal Serial Bus (USB), etc.) ;
+des disques durs (ATA, Serial ATA, SCSI). En revanche les systèmes de fichiers (NTFS, ReiserFS, ext3fs) ne sont pas considérés comme des pilotes car ils s'adressent non au matériel lui-même, mais déjà à une abstraction de celui-ci ;
+des scanners, appareils photo numériques, téléphone et caméscopes.
+Les niveaux d'abstraction pour les pilotes sont fréquemment :
+
+Du côté matériel :
+Interfaçage direct ;
+Utilisation d'une interface de plus haut niveau (par exemple : vidéo BIOS) ;
+Utilisation d'un autre pilote de plus bas niveau (par exemple : les pilotes de systèmes de fichiers) ;
+Simulation du fonctionnement avec un matériel, alors qu'il fait complètement autre chose ;
+Du côté logiciel :
+Permettre au système d'exploitation l'accès direct aux ressources matérielles ;
+Mettre en œuvre uniquement des primitives ;
+Mettre en œuvre une interface pour logiciel sans pilote (par exemple : TWAIN) ;
+Mettre en œuvre un langage, parfois de haut niveau (par exemple : PostScript).
+Au contraire de la plupart des logiciels de niveau utilisateur, qui peuvent être arrêtés sans affecter le reste du système, un bug dans un pilote peut mener à des dysfonctionnements du système, et dans de plus rares cas sévèrement endommager les données voire le matériel lui-même.
+
+Création des pilotes
+Mettre au point un pilote nécessite de connaître les spécifications du matériel piloté. Pour cette raison, les entreprises qui développent le matériel sont les plus à même d'écrire les pilotes, étant donné qu'elles ont plus que quiconque un accès complet aux informations relatives à 
+la conception du matériel. Qui plus est, on considère traditionnellement que l'intérêt des constructeurs est de permettre aux utilisateurs le fonctionnement optimal de leur matériel. Cependant, ces dernières années ont montré que nombre de pilotes ont été écrits par des non-constructeurs, souvent pour l'usage sous divers systèmes d'exploitation libres. Dans ces cas,
+ la coopération avec le constructeur reste importante, même si la rétro-ingénierie, bien plus complexe avec le matériel qu'avec le logiciel, permet de se passer d'une telle coopération au prix de beaucoup de temps passé à apprendre et comprendre comment fonctionne le matériel dont l'interface est inconnue.
+ #

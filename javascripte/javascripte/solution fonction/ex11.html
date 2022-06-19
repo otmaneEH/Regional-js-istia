@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript">
+		//isNan:
+		//-->true:x n'est pas un nombre
+		//--> false:x est un nombre
+		
+		/*indexOf("@")
+	    -->-1: x n'est pas un email
+	    -->!= -1:x est un email*/
+	     var x=prompt("saisir x:");
+	    if (isNaN(x)==true){
+
+	    	alert(x +"n\' est pas un nombre ");
+
+	    	 let index=x.indexOf("@");
+		    	if(index!=-1) 
+		    	{
+		    		alert(index+"est un email");
+		    	}
+		    	else{
+		    		alert(index+"n\'est un email");
+		    	}
+
+	    }
+	    else{
+	    	alert(x +" est pas un nombre ");
+	    }
+	</script>
+	<title>ex11</title>
+</head>
+<body>
+
+</body>
+</html>

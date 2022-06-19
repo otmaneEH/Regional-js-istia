@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript">
+		//ex1
+		/*var x=parseInt(prompt("saisir un nombre"));
+		f=1
+		for(i=1;i<=x;i++){
+			f=f*i
+		}
+		console.log(f);*/
+		/*function factoriel(n){
+			f=1
+			for (i=1;i<=n;i++){
+				f=f*i;
+			}
+			return f;
+		}
+		//var n=parseInt(number(prompt("saisir un nombre")));
+		var p=factoriel(3);
+		console.log("le factoriel est :"+p);*/
+		//function recursive 
+			//factoriel
+		/*function fact(n){
+			if(n==0)
+				return 1;
+			else 
+				return n*fact(n-1);
+		}
+		var n=parseInt(Number(prompt("saisir un nombre")));
+		var p=fact(n);
+		console.log("le factoriel est"+p);*/
+
+		//puissance
+		/*function puissance(a,b)
+		{
+			p=1
+			for(i=1;i<=b;i++){
+				p=p*a;
+			}
+			return p;
+		}
+		var x=parseInt(Number(prompt("saisir un nombre")));
+		var y=parseInt(Number(prompt("saisir un nombre")));
+		var pui=puissance(x,y);
+		console.log("la puissance est "+pui);*/
+		//recursive
+			/*function puissance(a,b)
+		{
+			if (b==0)
+				return 1;
+			else
+				return a*puissance(a,b-1);
+		}
+		var x=parseInt(Number(prompt("saisir un nombre")));
+		var y=parseInt(Number(prompt("saisir un nombre")));
+		var pui=puissance(x,y);
+		console.log("la puissance est "+pui);*/
+
+		//somme
+		/*function somme(n){
+			s=0
+			for (i=1;i<=n;i++){
+				s=s+i;
+			}
+			return s;
+		}
+		var x=parseInt(Number(prompt("saisir un nombre")));
+	
+		var so=somme(x);
+		console.log("la puissance est "+so);*/
+			//recursive
+		function somme(n){
+
+			if (n==0)
+				return 0;
+			else
+				return n+somme(n-1);
+		}
+		var x=parseInt(Number(prompt("saisir un nombre")));
+	
+		var so=somme(x);
+		console.log("la sommme est "+so);
+	</script>
+	<title>ex1</title>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+   <head>
+   <style>
+  
+   </style>
+   </head>
+   <body onload="settime()">
+  <table><tr><td><img src='img11.jpg'id="img1"/>
+  </td><td><img src='img10.jpg'id="img2"  /></td>
+  <td><img src='img1.png'id="img3"  /></td>
+  <td><img src='img2.png'id="img4"  /></td></tr></table>
+   <script>
+       
+		var img1=document.getElementById("img1");
+		var img2=document.getElementById("img2");
+		var img3=document.getElementById("img3");
+		var img4=document.getElementById("img4");
+		 var x=1;
+	    function afficher(){
+				 if(x==1){
+				      img2.src='img11.jpg';
+				      img1.src='img10.jpg';
+					  x=2}
+				 else if(x==2){
+				      img3.src='img11.jpg';
+				      img2.src='img1.png';
+					  x=3}
+				 else if(x==3){
+				      img4.src='img11.jpg';
+				      img3.src='img2.png';
+					  x=4}
+				 else if(x==4){
+				      img1.src='img11.jpg';
+				      img4.src='img2.png';
+				      img3.src='img1.png';
+				      img2.src='img10.jpg';
+					  x=1}
+				 
+		}
+	    var t;
+		function settime(){
+		          t=setInterval(afficher,1000);
+		}
+	   </script>
+   </body>
+  </html>

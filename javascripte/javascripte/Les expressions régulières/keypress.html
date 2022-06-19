@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+<body>
+message1:
+<input type="text" id="zone1"/>
+<label for="zone1" id="lblzone1">(*)</label>
+<br/>
+message2:
+<input type="text" id="zone2"/>
+<label for="zone2" id="lblzone2">(*)</label>
+<br/>
+<input type="button" onclick="check()" value="valider"/>
+				
+					
+					
+
+					
+    
+<script>
+var zone1=document.querySelector("#zone1");
+var zone2=document.querySelector("#zone2");
+var etat1=etat2=false;
+zone1.addEventListener("keyup",checkzone1);
+zone2.addEventListener("keyup",checkzone2);
+function checkzone1(){
+         var lblzone1=document.querySelector("#lblzone1");
+		 if(zone1.value.trim()=="")
+		 {
+		 lblzone1.innerHTML="(*)";
+		 etat1=false;
+		 }
+		 else
+		 {
+		   lblzone1.innerHTML="";
+		   etat1=false;
+		 }
+
+}
+function checkzone2(){
+         var lblzone2=document.querySelector("#lblzone2");
+		 if(zone2.value.trim()=="")
+		 {
+		 lblzone2.innerHTML="(*)";
+		 etat1=false;
+		 }
+		 else
+		 {
+		   lblzone2.innerHTML="";
+		   etat1=false;
+		 }
+
+}
+function check(){
+		 if(etat==true&&etat==true)
+		 {
+		 alert("ok");
+		 }
+		 
+
+}
+
+
+
+
+        
+</script>
+</body>
+</html>

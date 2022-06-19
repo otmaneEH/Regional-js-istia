@@ -1,0 +1,26 @@
+<html>
+   <head>
+   <title>ex28</title>
+        <script>
+		   function checkEmail(ch){
+		     etat=false
+			 let keys =/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+			   if(ch.match(keys)){
+			       etat=true
+			   }
+			   return etat
+		    
+		       
+		   }
+           var ch=prompt("saisir une chaine:");
+		    if (checkEmail(ch)==true{
+			    document.write("<h1>"+ch,"est un chaine sous forme de email"+"</h1>");
+			}
+			else{
+			    document.write("<h1>"+ch,"n'est pas un email"+"</h1>");
+			}
+        </script>
+   <body>
+      
+   </body>
+</html>

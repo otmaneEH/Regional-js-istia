@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript">
+		/*var a,b,ci,j;
+		 var a=parseInt(prompt("saisir un nombre a"));
+		 var b=parseInt(prompt("saisir un nombre b"));
+		for (i=a;i<=b;i++)
+		{	
+			c=0
+			for(j=1;j<=i;j++){
+				
+				if(i%j==0)
+				{
+					c++;	
+				}
+			}
+			if (c==2) {
+				console.log(i+"premier");
+			}
+	    }*/
+	    //nombre premier
+	   /* function premier(a){
+	    	c=0
+	    	for(i=1;i<=a/2;i++){
+	    		if(a%i==0){
+	    			c=1
+	    		} 
+	    	}
+	    	return c;
+	    }
+	    var x=parseInt(Number(prompt("saisir un nombre a")));
+	    if(premier(x)==1){
+	    	alert("premier");
+	    }
+	    else{
+	    	alert("pas premier");
+	    }*/
+	    //function des nombres premiers entre deux bornes
+	    function premier(a){
+	    	c=0
+	    	for(i=1;i<=a/2;i++){
+	    		if(a%i==0){
+	    			c=1
+	    		} 
+	    	}
+	    	return c;
+	    }
+	   
+	    var a=parseInt(prompt("saisir un nombre a"));
+		var b=parseInt(prompt("saisir un nombre b"));
+		for(let i=a; i<=b;i++){
+			let etat=premier(i);
+			if(etat==1){
+				document.write(i);
+			}
+		}
+	</script>
+	<title>ex2</title>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<html>
+   <head>
+   <style>
+      #circle1{
+	       z-index:1;
+		   position:absolute;
+		   top=1000px;
+		   left=500px;
+	  }
+	  
+	  #circle3{
+	       z-index:1;
+		   top:200px;
+		   left:200px;
+		   position:absolute;
+	  }
+	  #circle4{
+	       z-index:1;
+		   top:300px;
+		   left:300px;
+		   position:absolute;
+	  }
+	  #circle5{
+	       z-index:1;
+		   top:350px;
+		   left:350px;
+		   position:absolute;
+	  }
+	  </style>
+   
+   </head>
+   <body onload="settime()">
+  <table><tr><td><img src='circle1.png'id="circle1" style="display:none"/>
+
+<img src='circle3.png'id="circle3" style="display:none" />
+<img src='circle4.png'id="circle4" style="display:none" />
+<img src='circle5.png'id="circle5" style="display:none"/>  
+  </td></tr></table>
+   <script>
+   var start=1;
+   var circle1=document.getElementById("circle1");
+		var circle5=document.getElementById("circle5");
+		var circle3=document.getElementById("circle3");
+		var circle4=document.getElementById("circle4");
+  function photos(){
+        
+		
+		 if(start==1){
+		   circle1.style.display="block";
+		   start=2;
+		 }
+		else if(start==2){
+		  
+		   circle3.style.display="block";
+		   start=3;
+		 }
+		 else if(start==3){
+		 
+		   circle4.style.display="block";
+		   start=4;
+		 }
+		 else if(start==4){
+		   circle5.style.display="block";
+		   start=5;}
+		 else if (start==5){
+		   circle1.style.display="none";
+		   circle3.style.display="none";
+		   circle4.style.display="none";
+		   circle5.style.display="none";
+		   start=1;
+		 }
+   }
+   var t;
+		function settime(){
+		          t=setInterval(photos,1000);
+		}
+	   </script>
+   </body>
+  </html>

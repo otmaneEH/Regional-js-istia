@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+   <form>
+   <table>
+            
+				   <input type="button" value="demarer" onclick="demarer()"/>
+				   <input type="button" value="arreter" onclick="arreter()"/>
+				   <tr><td><label id="div1"></label></td></tr>
+				  
+  </table>
+  </form>
+  </body>
+  <script type="text/javascript">
+  var t;
+   function afficher() {
+       var now = new Date();
+	   var jour= now.getDate();
+	   var mois= now.getMonth()+1;
+	   var annee= now.getFullYear();
+	   var hours= now.getHours()-1;
+	   var minutes= now.getMinutes();
+	   var date=jour+"/"+mois+"/"+annee;
+       var div1=document.getElementById("div1");
+     div1.innerHTML+= date;
+	 
+   
+   }
+   
+   function demarer() {
+     t=setInterval(afficher,2000);
+	 
+   
+   }
+   function arreter() {
+     clearInterval(t);
+	 
+   
+   }
+   
+   
+   
+   
+  </script>
+</html>

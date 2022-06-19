@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <img id="image" src="111.jpg" width="200px" height="360px"/>
+        <input type="button" value="start" onclick="demarrer()">
+        <input type="button" value="finish" onclick="arreter()">
+
+    </body>
+    <script>
+        var t ;
+        function demarrer()
+        {
+            t = setInterval('afficher()',1000);
+        } 
+        function arreter()
+        {
+            clearInterval(t)
+        } 
+        var X = 1
+        var image = document.getElementById("image");
+        function afficher()
+        {
+           if (X == 1)
+            {
+                image.src ="112.jpg";
+                X = 2;
+            }            
+            else if (X == 2)
+            {
+                image.src ="111.jpg";
+                X = 1;
+            }
+        } 
+    </script>
+</html>

@@ -1,0 +1,46 @@
+<I DOCTYPE html>
+<html>
+<head>
+  <title>test1</title>
+  <style type="text/css">
+       <!-- table -->
+	   width:100%;
+	   height:500px;
+	   text-align:center;
+	   }
+	   table,tr,td{
+	     border:1px solid black;
+	   }
+  
+  </style>
+  
+  <script type="text/javascript">
+  var x=1;
+  x=x+1;
+  console.log(x);
+  x+=1;
+  console.log(x);
+  x++;
+  console.log(x);
+  x--;
+  console.log(x);
+  x*=3;
+  console.log(x);
+  x%=3;
+  console.log(x);
+  x**=3;
+  console.log(x);
+  
+  
+  
+      
+	  
+	  
+  </script>
+ 
+</head>
+  <body>
+
+<h1>site gestion annonce</h1
+  </body>
+</html>

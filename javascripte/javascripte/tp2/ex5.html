@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>ex4_tp2</title>
+	<style>
+	     div{
+		  border:1px solid pink;
+		  
+		 }
+	</style>
+</head>
+<body>
+    
+        <fieldset>
+            <h2>
+                calcul heure supp mansuel
+            </h2>
+			  formateur :  Permanent<input type="radio" checked="true" name="sexe" id="r1"> 
+                Vocataire<input type="radio" name="sexe" id="r2">
+				<br/>
+				<br/>
+            prix heure supp: <input type="text" id="nom"><br/><br/><br/>
+            Nombre heure supp :  <input type="text" id="prenom">
+            <br>
+            <br>
+			<input type="button" value="calculer" onclick="checkFormulaire()";  >
+            
+</body>
+<script>
+        var nom =document.getElementById('nom');
+        var prenom = document.getElementById('prenom');
+        var age = document.getElementById('age');
+        var r1 = document.getElementById('r1');
+        var r3 =document.getElementById('r3');
+        var chk1 = document.getElementById('chk1');
+        var chk2 = document.getElementById('chk2');
+        var chk3 = document.getElementById('chk3');
+        var chk4 = document.getElementById('chk4');
+        var chk5 = document.getElementById('chk5');
+        var chk6 = document.getElementById('chk6');
+        var divetranger =document.getElementById('divetranger');
+        var nationalite = document.getElementById('nationalite');
+
+        // function check nationalite :
+        function checkNationalite()
+        {
+            if(r3.checked==false)
+            {
+              
+                
+                divetranger.style.display='block'
+                
+            }
+            else
+            {
+                divetranger.style.display='none'
+            }
+          
+        }
+        // function check formulaire :
+
+        function checkFormulaire()
+            {
+                var infos = " ";
+                infos += nom.value + " " + prenom.value + ' ,' + age.value + 'Ans . '
+                if(r1.checked==true)
+                {
+                   
+                    infos += ' IL est de nationalité  ' 
+                }
+                else
+                {
+                    infos += 'Elle est de nationalité '
+                }
+               if(r3.checked==true)
+                    {
+                        infos += 'marocaine .'
+                    }
+               else
+                    {
+                        var nationalite = document.getElementById('nationalite');
+                        infos += 'etrangere son pays d\'origine est : ' + nationalite.value
+                    }
+                var tab =new Array();
+                if(chk1.checked==true)
+                    {
+                        tab.push(chk1.value)
+                    }
+                if(chk2.checked==true)
+                    {
+                        tab.push(chk2.value)
+                    }
+                if(chk3.checked==true)
+                    {
+                        tab.push(chk3.value)
+                    }
+                if(chk4.checked==true)
+                    {
+                        tab.push(chk4.value)
+                    }
+                if(chk5.checked==true)
+                    {
+                        tab.push(chk5.value)
+                    }
+                if(chk6.checked==true)
+                    {
+                        tab.push(chk6.value)
+                    }
+                var n = tab.length;
+                if(n==1)
+                    {
+                        infos += 'son interét est : ' + tab[0]
+                    }
+                else
+                    {
+                        let interét = " ses interets sont :";
+                      for(let i =0;i<=n-2;i++)
+                      {
+                        interét += tab[i] +','
+                      } 
+                      interét = interét.substring(0,interét.length-1) 
+                      infos += interét +' et ' +tab[n-1]
+                    }
+                    if(checkobligatoire()==false)
+                    {
+                        document.getElementById('divinfos').innerHTML=infos;
+
+                    }
+                    else
+                    {
+                        alert('touts les champs sont obligatoire :!')
+                    }
+                  
+            }
+            function checkobligatoire()
+            {
+                var etat = false;
+                if(nom.value=="" ||prenom.value=="" || age.value=="" )
+                    {
+                     etat = true   
+                    }
+                if(r3.checked==false && nationalite.value=='rien' )
+                {
+                    etat = true
+                }
+                if(chk1.checked==false && chk2.checked==false && chk3.checked==false &&
+                chk4.checked==false &&chk5.checked==false && chk6.checked==false )
+                {
+                    etat =true ;
+                }
+                return etat ;      
+            }
+            
+</script>
+</html>

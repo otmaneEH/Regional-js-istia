@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript">
+		//algorithme
+		/*var p,s,larg,long;
+		larg=parseInt(prompt("saisir la largeur"));
+		long=parseInt(prompt("saisir la longueur:"));
+		   p=(long+larg)*2;
+		   s=long*larg;
+		   console.log("la surface est"+s);
+		   console.log("le perimetre est"+p);*/
+		// function perimetre de rectangle
+		function getPerimetreRectangle(L,l) {
+			return 2*(L+l);
+		}
+		function getSurfaceRectangle(L,l) {
+			return L*l;
+		}
+		function getPerimetreCercle(r) {
+			return 2*Math.PI*r;
+		}
+		function getSurfaceCercle(r) {
+			return (r*r)*Math.PI;
+		}
+		function getPerimetreCarre(a) {
+			return 4*a;
+		}
+		function getSurfaceCarre(a) {
+			return a**2 ;
+		}
+		//rectangle
+		l=parseInt(prompt("saisir la longueur:"));
+		L=parseInt(prompt("saisir la longueur:"));
+		alert( getPerimetreRectangle(L,l))
+		alert(getSurfaceRectangle(L,l));
+		//cercle
+		r=parseInt(prompt("saisir le rayon:"));
+		alert(getPerimetreCercle(r));
+		alert(getSurfaceCercle(r));
+		//carré
+		a=parseInt(prompt("saisir la longueur:"));
+		alert(getPerimetreCarre(a));
+		alert(getSurfaceCarre(a));
+	</script>
+	<title>ex9</title>
+</head>
+<body>
+
+</body>
+</html>

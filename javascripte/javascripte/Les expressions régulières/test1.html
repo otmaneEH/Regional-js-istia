@@ -1,0 +1,85 @@
+<html>
+   <head>
+   <style>
+      
+	  </style>
+   
+   </head>
+   <body>
+  <form>
+				<fieldset>
+					<legend>client</legend>
+					<table>
+						<tr>
+							<td>matricule:</td>
+							<td><input type="text" id="matricule" required="true"/></td>
+							<td><label id="lblMatricule" style="color:red"></label> </td>
+						</tr>
+						<tr>
+							<td>nom:</td>
+							<td><input type="text" id="nom"/></td>
+							<td><label id="lblNom" style="color:red"></label> </td>
+						</tr>
+						<tr>
+							<td>prenom:</td>
+							<td><input type="text" id="prenom"/></td>
+							<td><label id="lblPrenom" style="color:red"></label> </td>
+						</tr>
+						<tr>
+							<td>salaire:</td>
+							<td><input type="number" id="prenom"/></td>
+							<td><label id="lblPrenom" style="color:red"></label> </td>
+						</tr>
+						
+						
+							
+						<tr>
+							<td>Email:</td>
+							<td><input type="email" id="email" /></td>
+						</tr>
+						<tr>
+							<td>url:</td>
+							<td><input type="text" id="prenom"/></td>
+							<td><label id="lblPrenom" style="color:red"></label> </td>
+						</tr>
+						<tr>
+							<td>TEL:</td>
+							<td><input type="tel" id="tel" /></td>
+						</tr>
+						<tr>
+							<td>code postal:</td>
+							<td><input type="number" id="prenom"/></td>
+							<td><label id="lblPrenom" style="color:red"></label> </td>
+						</tr>
+						
+						<tr>
+							<td> </td>
+							<td><input type="button"  value="afficher infos" onclick="checkformulaire()"></td>
+						</tr>
+					</table>
+				</fieldset>
+			</form>
+			<div id="info"></div>
+   <script>
+     function checkmatricule(matricule){
+	    var matricule=document.getElementById("matricule").value;
+	    var info=document.getElementById("info");
+	   let pattern.text =/^[0-9]{5}§/;
+	   if(pattern.text(matricule)==true)
+	     return true;
+	else
+	     return false;
+	   
+	   
+	 }
+	 function checkformulaire(){
+	   if(function checkmatricule(matricule)==true){
+	      info.innerHTML+=matricule;
+	   }
+	   else 
+	       lblMatricule.innerHTML="il faut ecrire au moin 5 caractere";
+	 }
+  
+	   </script>
+   </body>
+  </html>

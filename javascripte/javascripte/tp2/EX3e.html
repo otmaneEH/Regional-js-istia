@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Vente Pizza</legend>
+      <table>
+        <tr>
+          <td><label for="">Nom du client</label></td>
+          <td colspan="3"><input id="nom" type="text" name="" value=""></td>
+        </tr>
+        <tr>
+          <td><label for="">Adresse</label></td>
+          <td colspan="3"><input id="adresse" type="text" name="" value=""></td>
+        </tr>
+      </table><br>
+      <h1>Produits a acheter</h1><br>
+      <table border="solid" class="tab1">
+            <tr>
+              <th>Nom du produit</th>
+              <th>Prix unitaire en DH</th>
+              <th>Quantite</th>
+            </tr>
+            <tr>
+              <td>Pizza 4 fromages</td>
+              <td>80</td>
+              <td><input id="choix1" type="text" name="" value=""></td>
+            </tr>
+            <tr>
+              <td>Pizza Herbo</td>
+              <td>75</td>
+              <td><input id="choix2" type="text" name="" value=""></td>
+            </tr>
+            <tr>
+              <td>Pizza Viande hachee</td>
+              <td>100</td>
+              <td><input id="choix3" type="text" name="" value=""></td>
+            </tr>
+            <tr>
+              <td>Pizza fruits de mer</td>
+              <td>120</td>
+              <td><input id="choix4" type="text" name="" value=""></td>
+            </tr>
+          </table><br>
+          <h1>Paiement par:</h1><br>
+        <input checked id="r1" type="radio" onchange="desactive()" name="choixpaiment" value=""> Carte bancaire
+        <input id="r2" type="radio" name="choixpaiment" onchange="desactive()"  value=""> Cheque <br><br>
+        Numero de la carte bancaire: <input size="40" id="cb" type="text" name="" value=""><br><br>
+        <input type="button" name="" onclick="calculer()" value="Envoyer"><br><br><br>
+        Merci de votre visite, le montant total de votre commande est : <input id="resultat" type="text" name="" value="">
+
+    </fieldset>
+    <script type="text/javascript">
+      var nom = document.getElementById("nom")
+      var adresse = document.getElementById("adresse")
+      var cb = document.getElementById("cb")
+      var choix1 = document.getElementById("choix1")
+      var choix2 = document.getElementById("choix2")
+      var choix3 = document.getElementById("choix3")
+      var choix4 = document.getElementById("choix4")
+      var r1 = document.getElementById("r1")
+      var resultat =document.getElementById("resultat")
+      function checkobligatoire() {
+        var etat = true
+        if (nom.value.trim() == "" || adresse.value.trim() == "") {
+          etat = false
+        }
+        if (choix1.value.trim() == "" && choix2.value.trim() == "" && choix3.value.trim() == "" && choix4.value.trim() == "") {
+          etat = false
+        }
+        if (r1.checked && cb.value.trim() == "") {
+          etat = false
+        }
+        return etat;
+      }
+      function calculer() {
+        var total = 0
+        if (checkobligatoire() == false) {
+          alert("veuillez rensignee tous les champs")
+        }
+        else {
+          if (choix1.value.trim() != "") {
+            total += parseInt(choix1.value) * 80
+          }
+          if (choix2.value.trim() != "") {
+            total += parseInt(choix2.value) * 75
+          }
+          if (choix3.value.trim() != "") {
+            total += parseInt(choix3.value) * 100
+          }
+          if (choix4.value.trim() != "") {
+            total += parseInt(choix4.value) * 120
+          }
+        }
+        resultat.value=total
+        }
+        function desactive() {
+          if (r2.checked) {
+            cb.disabled = true
+          }
+          else {
+            cb.disabled = false
+          }
+        }
+    </script>
+  </body>
+</html>

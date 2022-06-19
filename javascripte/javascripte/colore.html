@@ -1,0 +1,63 @@
+<doctype html>
+<html>
+   <head>
+    <meta charset="utf-8"></meta>
+<title> Page pour changer la valeur d'un attribut</title>
+   </head>
+   <body onload="demarer()" id="body1">
+           <table>
+		        <tr>
+
+                        <td><input type="radio" id="r1" name="couleurs"/><label>Rouge</label></td>
+				        <td><input type="radio" id="r2" name="couleurs"/><label>Vert</label></td>
+				        <td><input type="radio" id="r3" name="couleurs"/><label>Jaune</label></td>
+				        <td><input type="radio" id="r4" name="couleurs"/><label>black</label></td>
+						
+			   </tr>
+		  </table>
+   </body>
+   <Script >
+   var t;
+      var body1=document.getElementById("body1")
+      var r1 = document.getElementById("r1")
+      var r2 = document.getElementById("r2")
+      var r3 = document.getElementById("r3")
+      var r4 = document.getElementById("r4")
+  function colorer() {
+      var x=1;
+	  var button=r1.checked;
+      if (x==1) {
+	    button
+        body1.style.backgroundColor = "red"
+		
+      }
+      else  {
+	     button=r2.checked;
+        body1.style.backgroundColor = "green"
+		  
+      }
+      else if (x==3) {
+	    button=r3.checked;
+        body1.style.backgroundColor = "yellow"
+		
+      }
+	   else if (x==4) {
+	    button=r1.checked;
+        body1.style.backgroundColor = "black"
+		
+      }
+	  x++
+	  
+    }
+		  function demarer() {
+     t=setInterval('colorer()',1000);
+	 
+   
+   }
+    function arreter()
+        {
+            clearInterval(t)
+        } 
+   
+   </script>
+</html>
