@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        function verifier() {
+            var tnom = $("#tnom").val();
+            var tprenom = $("#tprenom").val();
+            var tnaiss = $("#tnaiss").val();
+            var rM = $("#rM").val();
+            var rF = $("#rF").val();
+
+            if (tnom.value == "") {
+                alert("Le nom est obligatoire!");
+                return false;
+            }
+            if (tprenom.value == "") {
+                alert("Le prénom est obligatoire!");
+                return false;
+            }
+            if (tnaiss.value == "") {
+                alert("La date de naissance est obligatoire!");
+                return false;
+            }
+            if (rM.checked == false && rF.checked == false) {
+                alert("Choisir le sexe!");
+                return false;
+            }
+            alert("Formulaire confirmé!");
+            return false;
+        }
+    </script>
+    <title>Lorem ipsum dolor sit amet.</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="col-md-8 offset-md-2 ">Remplir le formulaire suivant</h1>
+        <div class="col-md-8 offset-md-2">
+            <form onsubmit="return verifier()">
+                <div class="row">
+                    <label for="tnom" class="col-md-3">Nom:</label>
+                    <input type="text" id="tnom" class="col-md-6" />
+                </div>
+                <div class="row">
+                    <label for="tprenom" class="col-md-3">Prénom:</label>
+                    <input type="text" id="tprenom" class="col-md-6" />
+                </div>
+                <div class="row">
+                    <label for="tnaiss" class="col-md-3">Date de naissance:</label>
+                    <input type="date" id="tnaiss" class="col-md-6" />
+                </div>
+                <div class="row">
+                    <label for="rM" class="col-md-3">Choisir le sexe:</label>
+                    <div class="col-md-3">
+                        <input type="radio" id="rM" value="Homme" name="sexe" />
+                        <label for="rM">Homme</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="radio" id="rF" value="Femme" name="sexe" />
+                        <label for="rF">Femme</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="submit" value="Envoyer" class="col-md-2 offset-md-2" />
+                    <input type="reset" value="Annuler" class="col-md-2 offset-md-2" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script>
+        var t = new Array();
+        function verifier() {
+            var Regex = /^[a-zA-Z]+$/img;
+            var tmatiere = document.getElementById("tmatiere").value;
+            var tcoef = document.getElementById("tcoef").value;
+            var tcc1 = document.getElementById("tcc1").value;
+            var tcc2 = document.getElementById("tcc2").value;
+            if (Regex.test(tmatiere) == false) {
+                alert("La matière est obligatoire!");
+                return false;
+            }
+            if (!Number.isInteger(Number(tcoef))) {
+                alert("Le coefficient doit être un entier!");
+                return false;
+            }
+            if (isNaN(parseFloat(tcc1))) {
+                alert("CC1 doit être une note valide!");
+                return false;
+            }
+            if (isNaN(parseFloat(tcc2))) {
+                alert("CC2 doit être une note valide!");
+                return false;
+            }
+            return true;
+        }
+        function chercher(matiere) {
+            for (var i = 0; i < t.length; i++) {
+                if (t[i].matiere == matiere) {
+                    return t[i];
+                }
+            }
+            return null;
+        }
+
+        function creer(matiere, coef, cc1, cc2) {
+            var obj = new Object();
+            obj.matiere = matiere;
+            obj.coef = coef;
+            obj.cc1 = cc1;
+            obj.cc2 = cc2;
+            return obj;
+        }
+        function ajouter() {
+            if (verifier()) {
+                var tmatiere = document.getElementById("tmatiere");
+                var tcoef = document.getElementById("tcoef");
+                var tcc1 = document.getElementById("tcc1");
+                var tcc2 = document.getElementById("tcc2");
+                if (chercher(tmatiere.value) != null) {
+                    alert("Cette matière existe déjà!");
+                    return false;
+                }
+                t.push(creer(tmatiere.value, parseInt(tcoef.value), parseFloat(tcc1.value), parseFloat(tcc2.value)))
+                actualiser();
+            }
+        }
+        function supprimer() {
+            var tmatiere = document.getElementById("tmatiere");
+            if (chercher(tmatiere.value) == null) {
+                alert("Cette matière n'existe pas!");
+                return false;
+            }
+            if (confirm("Vous-voulez vraiment supprimer cette matière?")) {
+                t.splice(t.indexOf(chercher(tmatiere.value)), 1);
+                actualiser();
+            }
+        }
+        function actualiser() {
+            var s = "<tr><th>Matière</th>" +
+                "<th>Coefficient</th>" +
+                "<th>CC1</th>" +
+                "<th>CC2</th>" +
+                "<th>Moyenne matière</th>" +
+                "<th>Moyenne*coef</th></tr>";
+            for (var i = 0; i < t.length; i++) {
+                s += "<tr>" +
+                    "<td>" + t[i].matiere + "</td>" +
+                    "<td>" + t[i].coef + "</td>" +
+                    "<td>" + t[i].cc1 + "</td>" +
+                    "<td>" + t[i].cc2 + "</td>" +
+                    "<td>" + ((t[i].cc1 + t[i].cc2) / 2) + "</td>" +
+                    "<td>" + ((t[i].cc1 + t[i].cc2) * t[i].coef / 2) + "</td>" +
+                    "</tr>";
+            }
+            var dliste = document.getElementById("dliste");
+            dliste.innerHTML = s;
+        }
+        function calculer() {
+            actualiser();
+            var sc = 0;
+            var som = 0;
+            for (var i = 0; i < t.length; i++) {
+                sc += t[i].coef;
+                som += ((t[i].cc1 + t[i].cc2) * t[i].coef) / 2;
+            };
+            s = "<tr><th>Total des coefs:</th>" +
+                "<td>" + sc + "</td>" +
+                "<th>Total:</td>" +
+                "<td>" + som + "</td>" +
+                "<th>Moyenne générale:</th>" +
+                "<td>" + Math.round(som * 100 / sc) / 100 + "</td></tr>";
+            var dliste = document.getElementById("dliste");
+            dliste.innerHTML += s;
+        }
+    </script>
+    <title>nn</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="col-md-8 offset-md-2 ">Saisir les notes de l'élève</h1>
+        <div class="col-md-8 offset-md-2">
+            <form onsubmit="return false">
+                <div class="row">
+                    <label for="tmatiere" class="col-md-3">Matière:</label>
+                    <input type="text" id="tmatiere" class="col-md-6" />
+                </div>
+                <div class="row">
+                    <label for="tcoef" class="col-md-3">Coeffient:</label>
+                    <input type="text" id="tcoef" class="col-md-6" />
+                </div>
+                <div class="row">
+                    <label for="tcc1" class="col-md-3">Contrôle 1:</label>
+                    <input type="text" id="tcc1" class="col-md-6" />
+                </div>
+                <div class="row">
+                    <label for="tcc2" class="col-md-3">Contrôle 2:</label>
+                    <input type="text" id="tcc2" class="col-md-6" />
+                </div>
+                <div class="row">
+                    <input type="button" value="Ajouter" class="col-md-2 offset-md-2" onclick="ajouter()" />
+                    <input type="button" value="Supprimer" class="col-md-2 offset-md-2" onclick="supprimer()" />
+                    <input type="button" value="Terminer" class="col-md-2 offset-md-2" onclick="calculer()" />
+                </div>
+                <div class="row">
+                    <table border class="col-md-12  table-bordered" id="dliste">
+
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

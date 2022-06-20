@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Site</title>
+    <link rel="stylesheet" href="../componants/bootstrap/bootstrap.min.css">
+    <script src="../componants/bootstrap/popper.min.js"></script>
+    <script src="../componants/bootstrap/popper.min.js"></script>
+    <script defer src="../scripts/crud.js"></script>
+    
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="col-md-8 offset-md-2 ">Saisir les informations du client</h1>
+    <div class="col-md-8 offset-md-2">
+        <form onsubmit="return false">
+            <div class="row">
+                <label for="tnom" class="col-md-3">Nom:</label>
+                <input type="text" id="tnom" class="col-md-6"/>
+            </div>
+            <div class="row">
+                <label for="tprenom" class="col-md-3">Prénom:</label>
+                <input type="text" id="tprenom" class="col-md-6"/>
+            </div>
+            <div class="row">
+                <label for="tville" class="col-md-3">Ville:</label>
+                <select id="tville" >
+                    <option value="Agadir" selected>Agadir</option>
+                    <option value="Casablanca">Casablanca</option>
+                    <option value="Marrakech">Marrakech</option>
+                    <option value="Rabat">Rabat</option>                            
+                </select>
+            </div>
+            <div class="row">
+                <label for="rM" class="col-md-3">Choisir le type:</label>
+                <div class="col-md-3">
+                <input type="radio" id="rF" value="Fournisseur" name="rtype"/>
+                <label for="rF" >Fournisseur</label></div>
+                <div class="col-md-3">
+                <input type="radio" id="rC" value="Client" name="rtype" checked/>
+                <label for="rC">Client</label></div>
+            </div> 
+            <div class="row">
+                <input type="button" value="Ajouter" class="col-md-2 offset-md-2" onclick="ajouter()"/>
+                <input type="reset" value="Initialiser" class="col-md-2 offset-md-2"/>
+            </div>
+            <div  class="row">
+                <table border id="dliste" class="col-md-12">
+                </table>                  
+            </div>
+        </form>
+    </div>            
+</div>        
+</body>
+
+</html>

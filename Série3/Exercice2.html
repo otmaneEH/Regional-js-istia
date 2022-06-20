@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="jquery/jquery-3.6.0.min.js"></script>
+        <script>
+            var t=new Array();
+            function verifier(){
+                var tnom=$("#tnom");
+                var tprenom=$("#tprenom");
+                var tville=$("#tville");
+                var rC=$("#rC");
+                var rF=$("#rF");
+                if(tnom.val()==""){
+                    alert("Le nom est obligatoire!");
+                    return false;
+                }
+                if(tprenom.val()==""){
+                    alert("Le prénom est obligatoire!");
+                    return false;
+                }
+                if(tville.val()==""){
+                    alert("La ville est obligatoire!");
+                    return false;
+                }
+                if(rC.is("checked")==false && rF.is("checked")==false){
+                    alert("Choisir le type!");
+                    return false;
+                }                
+                return true;
+            }
+            function getType(){
+                var rC=document.getElementById("rC");
+                if(rC.checked){
+                    return "Client";
+                }
+                return "Fournisseur";
+            }
+            function creer(nom,prenom,ville,type){
+                var obj=new Object();
+                obj.nom=nom;
+                obj.prenom=prenom;
+                obj.ville=ville;
+                obj.type=type;
+                return obj;
+            }
+            function ajouter(){
+                if(verifier()){
+                    var tnom=document.getElementById("tnom");
+                    var tprenom=document.getElementById("tprenom");
+                    var tville=document.getElementById("tville");
+                    t.push(creer(tnom.value,tprenom.value,tville.value,getType()));
+                    var s="<tr><th>Nom</th><th>Prénom</th><th>Ville</th><th>Type</th></tr>";
+                    for(var i=0;i<t.length;i++){
+                        s+="<tr>"+
+                            "<td>"+t[i].nom+"</td>"+
+                            "<td>"+t[i].prenom+"</td>"+
+                            "<td>"+t[i].ville+"</td>"+
+                            "<td>"+t[i].type+"</td>"+
+                            "</tr>";
+                    }
+                    
+                    var dliste=document.getElementById("dliste");
+                    dliste.innerHTML=s;
+                }
+            }
+        </script>
+        <title>d</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="col-md-8 offset-md-2 ">Saisir les informations du client</h1>
+            <div class="col-md-8 offset-md-2">
+                <form onsubmit="return false">
+                    <div class="row">
+                        <label for="tnom" class="col-md-3">Nom:</label>
+                        <input type="text" id="tnom" class="col-md-6"/>
+                    </div>
+                    <div class="row">
+                        <label for="tprenom" class="col-md-3">Prénom:</label>
+                        <input type="text" id="tprenom" class="col-md-6"/>
+                    </div>
+                    <div class="row">
+                        <label for="tville" class="col-md-3">Ville:</label>
+                        <select id="tville" >
+                            <option value="Agadir" selected>Agadir</option>
+                            <option value="Casablanca">Casablanca</option>
+                            <option value="Marrakech">Marrakech</option>
+                            <option value="Rabat">Rabat</option>                            
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label for="rM" class="col-md-3">Choisir le type:</label>
+                        <div class="col-md-3">
+                        <input type="radio" id="rF" value="Fournisseur" name="rtype"/>
+                        <label for="rF" >Fournisseur</label></div>
+                        <div class="col-md-3">
+                        <input type="radio" id="rC" value="Client" name="rtype" checked/>
+                        <label for="rC">Client</label></div>
+                    </div> 
+                    <div class="row">
+                        <input type="button" value="Ajouter" class="col-md-2 offset-md-2" onclick="ajouter()"/>
+                        <input type="reset" value="Initialiser" class="col-md-2 offset-md-2"/>
+                    </div>
+                    <div  class="row">
+                        <table border id="dliste" class="col-md-12">
+                        </table>                  
+                    </div>
+                </form>
+            </div>            
+        </div>        
+    </body>
+</html>
