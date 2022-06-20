@@ -7,9 +7,9 @@
         $(document).ready(function(){
             $("button").click(function(){
                 $("div").hide(1000,function(){
-                    $(this).css("background-color","red")
+                    $(this)
                     .slideUp(2000)
-                    .slideDown(2000);
+                    .slideDown(2000).css("background-color","green");
                 });                
             });
         });
